@@ -373,6 +373,10 @@ public class DBClass {
         }
         
     }
+    
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+    
         //Selects the ID of the person logged in.
         public int fetchLoggedInDB(String userNameIn)
         {
@@ -387,20 +391,44 @@ public class DBClass {
             strPersonID = idb.fetchSingle(sqlFraga);
             
             intPersonID = Integer.parseInt(strPersonID);
-        
+
             System.out.println("Lyckades att hämta ID");
         } catch (InfException e) {
             System.out.println(e.getMessage());
         }
 
         return intPersonID;
-        }
-        
-        
+    }
 
-    }   
+        
+    /*
+        Checks the users access.
+        @userID = The users id.
+        @department = What we want to check agianst.
+        */
+    public boolean checkAccess(int userID, String department) 
+    {
+        String sqlFraga = "SELECT PERSONID from " + department + " where PERSONID = " + userID;
+        String access = "";
+
+        try {
+            access = idb.fetchSingle(sqlFraga);
+
+        } catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+        //If the user has access, the method returns true, else the method returns false.
+        if (access.equals("")) {
+            return false;
+        } else {
+            return true;
+        } 
+    }
     
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
     
+}
     
         
                  

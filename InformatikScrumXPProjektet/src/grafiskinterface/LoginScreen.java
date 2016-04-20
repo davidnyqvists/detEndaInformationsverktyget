@@ -53,12 +53,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tf_LoginScreen_Username.setText("systemadmin");
-        tf_LoginScreen_Username.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_LoginScreen_UsernameActionPerformed(evt);
-            }
-        });
+        tf_LoginScreen_Username.setText("bacon93");
 
         lbl_LoginScreen_Title.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbl_LoginScreen_Title.setText("Det otroliga Informatikprogrammet");
@@ -81,12 +76,7 @@ public class LoginScreen extends javax.swing.JFrame {
             }
         });
 
-        pf_LoginScreen_Password.setText("systemadmin");
-        pf_LoginScreen_Password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pf_LoginScreen_PasswordActionPerformed(evt);
-            }
-        });
+        pf_LoginScreen_Password.setText("losenord");
 
         btn_LoginScreen_KontoHantering.setText("Konto Hantering");
         btn_LoginScreen_KontoHantering.addActionListener(new java.awt.event.ActionListener() {
@@ -177,14 +167,15 @@ public class LoginScreen extends javax.swing.JFrame {
                     //Sends the username into the Login Holder.
                     //Login Holder will send to to database and set values
                     //in the Current Login.
-                    currentLoginH.fetchIDofLogIn(username);
+                    
+                    //currentLoginH.fetchIDofLogIn(username);
+                 
+                    //currentLoginH.test();
                     
                     GrafikHelper.DisposeFrame();
                     GrafikHelper.InitieraMain();
                     
-                    
-                    
-                    
+    
                 }
                 else
                 {
@@ -207,14 +198,6 @@ public class LoginScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "The username or password is wrong");
         }
     }//GEN-LAST:event_btn_LoginScreen_KontoHanteringActionPerformed
-
-    private void pf_LoginScreen_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pf_LoginScreen_PasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pf_LoginScreen_PasswordActionPerformed
-
-    private void tf_LoginScreen_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_LoginScreen_UsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_LoginScreen_UsernameActionPerformed
 
     /**
      * @param args the command line arguments

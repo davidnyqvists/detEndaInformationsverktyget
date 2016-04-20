@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.CardLayout;
 /**
  *
- * @author Simon
+ * @author Simon the swaglord
  */
 public class Main extends javax.swing.JFrame {
     
