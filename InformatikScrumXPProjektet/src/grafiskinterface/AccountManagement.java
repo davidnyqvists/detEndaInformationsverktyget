@@ -115,6 +115,24 @@ public class AccountManagement extends javax.swing.JFrame {
     
     }
     
+    public void updateInfo()
+    {
+      String valtNamn = cb_AccountManagement_MainPanel_AndraKonto_AccountChooser.getSelectedItem().toString();
+      String GUIName = TF_Namn.getText();
+      String GUIUsername = tf_AccountManagement_LaggTillKonto_Username.getText();
+      String GUIPassword = String.valueOf(tf_AccountManagement_LaggTillKonto_Password.getPassword());
+      String GUIConfirmPassword = String.valueOf(tf_Accountmanagement_LaggTillKonto_ChangePassword.getPassword());
+      
+      String sqlGuiName = "UPDATE PERSON SET PERSON.NAME = '" + GUIName + "' WHERE PERSON.NAME = '" + valtNamn + "' "; 
+      System.out.println(sqlGuiName);
+      dataBase.getId(sqlGuiName);
+        sqlMethods = dataBase.returnDatabase();
+    
+    
+    
+    
+    }
+    
     
     
     
@@ -461,6 +479,11 @@ public class AccountManagement extends javax.swing.JFrame {
         chk_AccountManagement_AndraKonto_Education.setText("Utbildning");
 
         jButton3.setText("Spara");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Välj");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -719,6 +742,10 @@ getInfo();
     private void TF_Losen2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_Losen2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_Losen2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        updateInfo();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public boolean doesPersonExistInDatabase (String username) {
         String sql = "select username from person";
