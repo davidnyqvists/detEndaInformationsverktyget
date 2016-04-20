@@ -20,13 +20,12 @@ import javax.swing.JOptionPane;
 public class LoginScreen extends javax.swing.JFrame {
     
     private DBClass dataBase;
-    private CurrentLogin currentUser;
+    private CurrentLoginHolder currentLoginH;
     /**
      * Creates new form LogInRuta
      */
     public LoginScreen() {
         dataBase = new DBClass();
-       // currentUser = new CurrentLogin();
         this.setLocationRelativeTo(null);
         initComponents();
         
@@ -174,9 +173,15 @@ public class LoginScreen extends javax.swing.JFrame {
         
                 if (dataBase.logIn(username, password))
                 {
-                   // CurrentLoginHolder.InitieraHoldern(currentUser, username, password);
+                   
+                    //Sends the username into the Login Holder.
+                    //Login Holder will send to to database and set values
+                    //in the Current Login.
+                    currentLoginH.fetchIDofLogIn(username);
+                    
                     GrafikHelper.DisposeFrame();
                     GrafikHelper.InitieraMain();
+                    
                     
                     
                     

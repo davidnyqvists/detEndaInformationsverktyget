@@ -40,7 +40,7 @@ public class DBClass {
         
         // Anslut till databasen
      try {
-            idb = new InfDB(System.getProperty("user.dir") + "\\" + "BOOKFACE.FDB"); // Ändra namn till nuvarande databas
+            idb = new InfDB(System.getProperty("user.dir") + "\\" + "BOOKFACE.FDB"); // Ändra personID till nuvarande databas
             System.out.println("Uppkopplingen lyckades");
         } catch (InfException e) {
             System.out.println(e.getMessage());
@@ -137,7 +137,7 @@ public class DBClass {
        // String sqlFraga = "SELECT PERSONID FROM PERSON WHERE NAME = "
                // + "'" + namnIn + "'";
 
-        //System.out.println("getNameAid() ger " + namn);
+        //System.out.println("getNameAid() ger " + personID);
 
         try {
             id = idb.fetchSingle(sql);
@@ -371,6 +371,32 @@ public class DBClass {
             System.out.println("whole query är " + wholeQuery);
             return false;
         }
+        
+    }
+        //Selects the ID of the person logged in.
+        public int fetchLoggedInDB(String userNameIn)
+        {
+            String strPersonID;
+            int intPersonID = 0;
+            
+        String sqlFraga = "SELECT PERSONID FROM PERSON WHERE USERNAME = "
+                + "'" + userNameIn + "'";
+
+
+        try {
+            strPersonID = idb.fetchSingle(sqlFraga);
+            
+            intPersonID = Integer.parseInt(strPersonID);
+        
+            System.out.println("Lyckades att hämta ID");
+        } catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return intPersonID;
+        }
+        
+        
 
     }   
     
@@ -378,4 +404,4 @@ public class DBClass {
     
         
                  
-}
+

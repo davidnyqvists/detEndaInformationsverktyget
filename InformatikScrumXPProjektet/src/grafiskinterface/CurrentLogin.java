@@ -5,11 +5,15 @@
  */
 package grafiskinterface;
 
+import databas.DBClass;
+
 /**
  *
  * @author Simon
  */
 public class CurrentLogin {
+    
+   
     
     private static boolean educationAdmin;
     private static boolean researchAdmin;
@@ -132,6 +136,9 @@ public class CurrentLogin {
         id = aId;
     }
 
+    
+    
+    
     
 
    

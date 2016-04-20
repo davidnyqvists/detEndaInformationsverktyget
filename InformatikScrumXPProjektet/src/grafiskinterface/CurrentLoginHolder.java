@@ -5,6 +5,8 @@
  */
 package grafiskinterface;
 
+import databas.DBClass;
+
 
 /**
  *
@@ -12,19 +14,21 @@ package grafiskinterface;
  */
 public class CurrentLoginHolder {
     
-    private static CurrentLogin nuvarandeLogIn;
+   // private static CurrentLogin nuvarandeLogIn; "Behövs ej ddå den är statisk?"
     private static String user;
     private static String pass;
+    private DBClass infDB;
+    
+    
+    public CurrentLoginHolder()
+            {
+                infDB = new DBClass();
+            }
+    
+   
 
-    /**
-     * @return the nuvarandeLogIn
-     */
-    public static CurrentLogin getNuvarandeLogIn() {
-        return nuvarandeLogIn;
-    }
-
-    public static void InitieraHoldern(CurrentLogin currentUser, String username, String password) {
-        nuvarandeLogIn = currentUser;
+    public void InitieraHoldern(CurrentLogin currentUser, String username, String password) {
+        //nuvarandeLogIn = currentUser; "Behövs ej då den är statisk?"
         user = username;
         pass = password;
         currentUser.setEducationAdmin(true);
@@ -34,6 +38,13 @@ public class CurrentLoginHolder {
         currentUser.setForskning(true);
     }
     
+    int userID;
+    
+    //Fetch the ID of the logged in person.
+    public void fetchIDofLogIn(String username)
+    {
+        userID = infDB.fetchLoggedInDB(username);
+    }
     
 }
 
