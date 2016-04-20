@@ -11,6 +11,8 @@ package databas;
  */
 
 //KLASSER VI IMPORTERAR
+
+import grafiskinterface.CurrentLogin;
 import grafiskinterface.GrafikHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,6 +49,34 @@ public class DBClass {
     
     }
     
+    /**
+     * 
+     * @param arrayPerson send in a array with names you want to add to the table Attendees.
+     * @param meetingID The meetingID you want to add the persons in.
+     */
+    public void addPersonToAttendees(String meetingID, String[] arrayPerson) {
+        ArrayList<String> personidList = new ArrayList<String>();
+        try{
+            
+            int length = arrayPerson.length;
+            
+            for (int i = 0; i < length ; ++i){
+                String sql1 = "Select PERSONID from PERSON where NAME = '" + arrayPerson[i] + "'";
+                String personID = idb.fetchSingle(sql1);
+                personidList.add(personID);
+                
+            }
+            for(int i = 0; i < personidList.size(); i++)
+            {
+                String sql2 = "INSERT INTO ATTENDEES values(" + meetingID + "," + personidList.get(i) + ")";
+                idb.insert(sql2);
+            }
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+        
+    }
     
      /**
      * Lists all hired persons and returns them in the form of an 
@@ -70,7 +100,7 @@ public class DBClass {
     }
     public ArrayList<HashMap<String, String>> listAllRooms()
     {
-        String sqlFraga = "select * from Sal";
+        String sqlFraga = "select * from ROOM";
         
         try
         {
@@ -101,7 +131,7 @@ public class DBClass {
         return lista;
     }
     
-    //METOD FÖR ATT HÄMTA ANSTÄLLDS AID MED MOTSVARANDE NAMN
+    //METOD FÖR ATT HÄMTA information
     public String getId(String sql) {
        String id = "";
        // String sqlFraga = "SELECT PERSONID FROM PERSON WHERE NAME = "
@@ -140,9 +170,13 @@ public class DBClass {
             return false;
         }
     }
-    
+    /**
+     * Get the roomid by inserting the room name.
+     * @param roomname is the name of the room
+     * @return returns the roomID or null.
+     */
     public String getRoomIDfromRoomname(String roomname) {
-        String sql = "Select ROOMID from ROOM where name ='" +roomname+ "'";
+        String sql = "Select ROOMID from ROOM where RNAME ='" +roomname+ "'";
         try {
             String ROOMID = idb.fetchSingle(sql);
             return ROOMID;
@@ -152,13 +186,83 @@ public class DBClass {
             return null;
         }
     }
-
+    
+    /**
+     * inserts the date into date_time. Also returns the sql query.
+     * @param date A string, and should be in the form: YYYY-MM-dd HH:mm:ss
+     * @return Returns the sql query.
+     */
+    public String insertDateToDate_Time(String date) {
+        try {
+            String sql = "INSERT INTO DATE_TIME VALUES (" + idb.getAutoIncrement("DATE_TIME", "DATE_TIMEID") + ",'" + date + "')";
+            idb.insert(sql);
+            
+            //Return the created ID.
+            return sql;
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+    
+    /**
+     * inserts meetingID and datetimeID to the database(MEETING_TIME)
+     * @param meetingID
+     * @param dateTimeID
+     * @return the sql query
+     */
+    public String addMeetingTime(String meetingID, String dateTimeID) {
+        try {
+            String sql = "INSERT INTO meeting_time values (" + idb.getAutoIncrement("meeting_time", "MEETING_TIMEID") + ",'" + meetingID + "','" + dateTimeID + "')";
+            idb.insert(sql);
+            return sql;
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+    
+    /**
+     * Add a meeting. It also returns the sql query
+     * @param title
+     * @param description
+     * @param roomID
+     * @return Returns the sql query.
+     */
+    public String addMeeting (String title, String description, String roomID /*, String personID, String meeting_timeID*/ ) {
+        try {
+            String sql = "INSERT INTO MEETING (MEETINGID, TITLE, DESCRIPTION, ROOMID) VALUES (" + idb.getAutoIncrement("MEETING", "MEETINGID") + ",'" + title + "'"
+                    + ",'" + description + "','" + roomID + "')";
+            idb.insert(sql);
+            return sql;
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
     
     // Metod Lägger till nyckeltyp kopplat till tabell i HashMap primeKeys;
     private void addPrimeKeys() {
         primeKeys.put("MEETING", "MEETINGID");
         primeKeys.put("MEETING_TIME", "MEETING_TIMEID");
        System.out.println(primeKeys);
+    }
+    
+    public void addMeetingTimeToMeeting (String meetingID, String meetingTimeID){
+        String sql = "UPDATE MEETING SET meeting_timeID =" + meetingTimeID + " where meetingID =" + meetingID;
+        try {
+            
+            idb.update(sql);
+            
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+           
+        }
+    
     }
     
     public boolean logIn(String user, String pass) {
@@ -182,17 +286,96 @@ public class DBClass {
         
     }
     
+    //METOD FÖR ATT HÄMTA ANSTÄLLDS PERSONID MED MOTSVARANDE NAMN
+    public String hamtaAnstalldPid(String namnIn) {
+        String namn = "";
+        String sqlFraga = "SELECT PERSONID FROM PERSON WHERE NAME = "
+                + "'" + namnIn + "'";
+
+        System.out.println("hamtaAnstalldAid() ger " + namn);
+
+        try {
+            namn = idb.fetchSingle(sqlFraga);
+        
+            System.out.println("Lyckades att hämta namn");
+        } catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return namn;
+    }
+    
+    public void createPost(String title, String text, int correctForum)
+    {
+        try {
+            //Inserts the post into the main post table and assigns the post an incremented value.
+            String sql = "INSERT INTO POST (POSTID, TITLE, TEXT) VALUES (" + idb.getAutoIncrement("POST", "POSTID") + ",'" + title + "','" + text + "')";
+            idb.insert(sql);
+            
+            //Fetches the incremented value to be used in other post tables.
+            String lastID = "SELECT LAST(POSTID) FROM POST";
+            int personID = CurrentLogin.getId();
+            String forum = "";
+            
+            //Checks which forum that the post will be inserted to.
+            if (correctForum == 0)
+            {
+                forum = "POST_FORSKNING";
+            }
+            else if(correctForum == 1)
+                    {
+                        forum = "POST_UTBILDNING";
+                    }
+            else if (correctForum == 2)
+            {
+                forum = "POST_INFORMAL";
+            }
+            
+            //Inserts the post into it's catigorized table.
+            sql = "INSERT INTO "+forum+" (POSTID, PERSONID, DATE_TIMEID) VALUES ("+lastID+", " +personID+", NOW())";
+            idb.insert(sql);
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    //METOD FÖR ATT HÄMTA ALLA ANSTÄLLDAS NAMN OCH PID 
+    public ArrayList<HashMap<String, String>> hamtaAllNamnPid() {
+        ArrayList<HashMap<String, String>> lista = new ArrayList<HashMap<String, String>>();
+        String sqlFraga = "Select PERSONID,NAME FROM PERSON";
+
+        try {
+            ArrayList<HashMap<String, String>> anstalldLista = idb.fetchRows(sqlFraga);
+            lista = anstalldLista;
+            System.out.println(lista);
+        } catch (InfException e) {
+            System.out.println("Något gick fel");
+        }
+        return lista;
+    }
+ // Lägger till nya värden i tabeller
+    public boolean insertIntoTable(String table, String query) {
+        String wholeQuery = "";
+        try {
+            wholeQuery = "INSERT INTO " + table + " VALUES("
+                    + query + ")";
+            idb.insert(wholeQuery);
+            System.out.println("lyckades uppdatera");
+      
+            System.out.println("whole query i try är " + wholeQuery);
+            return true;
+        } catch (InfException e) {
+
+           
+            System.out.println("whole query är " + wholeQuery);
+            return false;
+        }
+
+    }   
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        
+                 
 }
