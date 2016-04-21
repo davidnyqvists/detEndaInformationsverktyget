@@ -224,18 +224,18 @@ dataBase.getId(sqlDelete16);
     public void updateInfo() {
         String valtNamn = cb_AccountManagement_MainPanel_AndraKonto_AccountChooser.getSelectedItem().toString();
         String GUIName = TF_Namn.getText();
-        String GUIUsername = tf_AccountManagement_LaggTillKonto_Username.getText();
-        String GUIPassword = String.valueOf(tf_AccountManagement_LaggTillKonto_Password.getPassword());
-        String GUIConfirmPassword = String.valueOf(tf_Accountmanagement_LaggTillKonto_ChangePassword.getPassword());
+        String GUIUsername = TF_AnvNamn.getText();
+        String GUIPassword = TF_Losen.getText();
+        String GUIConfirmPassword = TF_Losen2.getText();
 
         String sqlFraga = "SELECT PERSONID FROM PERSON WHERE NAME = \n"
                 + "'" + GUIName + "'";
         String newPid = dataBase.getId(sqlFraga);
 
-        String sqlGuiUserName = "UPDATE PERSON SET PERSON.USERNAME = '" + GUIName + "' WHERE PERSON.NAME = '" + valtNamn + "' ";
+        String sqlGuiUserName = "UPDATE PERSON SET PERSON.USERNAME = '" + GUIUsername + "' WHERE PERSON.NAME = '" + valtNamn + "' ";
         dataBase.getId(sqlGuiUserName);
 
-        String sqlGuiUserPassword = "UPDATE PERSON SET PERSON.PASSWORD1 = '" + GUIName + "' WHERE PERSON.NAME = '" + valtNamn + "' ";
+        String sqlGuiUserPassword = "UPDATE PERSON SET PERSON.PASSWORD1 = '" + GUIPassword + "' WHERE PERSON.NAME = '" + valtNamn + "' ";
         dataBase.getId(sqlGuiUserPassword);
 
         String sqlGuiName = "UPDATE PERSON SET PERSON.NAME = '" + GUIName + "' WHERE PERSON.NAME = '" + valtNamn + "' ";
@@ -420,8 +420,6 @@ dataBase.getId(sqlDelete16);
         jCheckBox10.setEnabled(false);
 
         jButton4.setText("Välj");
-
-        cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4" }));
 
         s.setText("Ta bort konto");
         s.addActionListener(new java.awt.event.ActionListener() {
@@ -654,6 +652,12 @@ dataBase.getId(sqlDelete16);
         TF_Losen2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_Losen2ActionPerformed(evt);
+            }
+        });
+
+        TF_Losen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_LosenActionPerformed(evt);
             }
         });
 
@@ -905,6 +909,10 @@ dataBase.getId(sqlDelete16);
     private void sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sActionPerformed
         taBortAnstalld();
     }//GEN-LAST:event_sActionPerformed
+
+    private void TF_LosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LosenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_LosenActionPerformed
 
     public boolean doesPersonExistInDatabase(String username) {
         String sql = "select username from person";
