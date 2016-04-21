@@ -305,6 +305,14 @@ public class DBClass {
         return namn;
     }
     
+    /**
+     * Method for creating posts. Gets info through parameters and uses these
+     * in sql queries.
+     * @param title
+     * @param text
+     * @param correctForum
+     * @param ResearchGroup 
+     */
     public void createPost(String title, String text, int correctForum, String ResearchGroup)
     {
         try {
@@ -313,17 +321,38 @@ public class DBClass {
             idb.insert(sql);
             
             //Fetches the incremented value to be used in other post tables.
-            String lastID = "SELECT LAST(POSTID) FROM POST";
+            Integer idHolder = 0;
+            String lastID ="";
+            ArrayList<String> allIDs = new ArrayList<String>();
+            //Fetches the incremented value to be used in other post tables.
+            sql = "SELECT POSTID FROM POST";
+            
+            //Fetches all the IDs and puts them inside of an ArrayList.
+            allIDs = idb.fetchColumn(sql);
+
+            for (String currentId : allIDs)
+            {   //Compares if the currentId is bigger then the idHolder.  
+                if(Integer.parseInt(currentId) > idHolder)
+                {   
+                    idHolder = Integer.parseInt(currentId); //Sets the idHolder to the found value.
+                }
+            }
+            
+            //Sets the lastID variable to the biggest number found.
+            lastID = idHolder.toString();
+            
             int personID = CurrentLogin.getId();
             String forum = "";
             
             //Checks which forum that the post will be inserted to.
             if (correctForum == 0)
             {
+                //This has it's own method,  due to having an extra column in its table.
                 forum = "POST_FORSKNING";
                 sql = "INSERT INTO "+forum+" (POSTID, PERSONID, DATE_TIMEID, RESEARCHGROUP) "
                         + "VALUES ("+lastID+", "+personID+" '"+1+"','"+ResearchGroup+"')";
                 idb.insert(sql);               
+                return;
             }
             else if(correctForum == 1)
                     {
@@ -343,6 +372,7 @@ public class DBClass {
         }
     }
     
+    
     //METOD FÖR ATT HÄMTA ALLA ANSTÄLLDAS NAMN OCH PID 
     public ArrayList<HashMap<String, String>> hamtaAllNamnPid() {
         ArrayList<HashMap<String, String>> lista = new ArrayList<HashMap<String, String>>();
@@ -357,6 +387,7 @@ public class DBClass {
         }
         return lista;
     }
+    
  // Lägger till nya värden i tabeller
     public boolean insertIntoTable(String table, String query) {
         String wholeQuery = "";
