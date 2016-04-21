@@ -350,7 +350,7 @@ public class DBClass {
                 //This has it's own method,  due to having an extra column in its table.
                 forum = "POST_FORSKNING";
                 sql = "INSERT INTO "+forum+" (POSTID, PERSONID, DATE_TIMEID, RESEARCHGROUP) "
-                        + "VALUES ("+lastID+", "+personID+" '"+1+"','"+ResearchGroup+"')";
+                        + "VALUES ("+lastID+", "+personID+", '"+1+"','"+ResearchGroup+"')";
                 idb.insert(sql);               
                 return;
             }
