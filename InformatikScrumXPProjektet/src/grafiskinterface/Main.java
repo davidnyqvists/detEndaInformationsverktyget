@@ -76,7 +76,6 @@ public class Main extends javax.swing.JFrame {
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll = new javax.swing.JTextPane();
-        btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
@@ -423,24 +422,13 @@ public class Main extends javax.swing.JFrame {
 
         jScrollPane8.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll);
 
-        btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll.setText("Nytt inlägg");
-        btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.setHorizontalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
-                        .addGap(0, 419, Short.MAX_VALUE)
-                        .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll))
-                    .addComponent(jScrollPane8))
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
                 .addContainerGap())
         );
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.setVerticalGroup(
@@ -448,9 +436,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Alla", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll);
@@ -650,10 +636,6 @@ public class Main extends javax.swing.JFrame {
         GrafikHelper.InitieraLogIn();
     }//GEN-LAST:event_btn_Main_LoggautActionPerformed
 
-    private void btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllActionPerformed
-
   
     
     
@@ -705,7 +687,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePost;
     private javax.swing.JButton btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePost;
     private javax.swing.JButton btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePost;
-    private javax.swing.JButton btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll;
     private javax.swing.JButton btn_Main_Research;
     private javax.swing.JButton btn_Main_SkapaMote;
     private javax.swing.JButton btn_Main_Social;

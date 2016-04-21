@@ -22,7 +22,7 @@ public class CurrentLogin {
     private static boolean forskning;
     private static String namn;
     private static String username;
-    private static int id;
+    private static int id = 1;
 
     /**
      * @return the educationAdmin

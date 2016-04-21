@@ -116,16 +116,36 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
 
     private void btn_CreateNewPostFrame_PostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CreateNewPostFrame_PostActionPerformed
         
-        if (windowParameter.equals("rGroup6"))
+        String title = tf_CreateNewPostFrame_PostTitle.getText();
+        String text = tf_CreateNewPostFrame_PostBody.getText();
+        int forum = 0;
+        
+        if (windowParameter.equals("rGroup1"))
         {
-            String title = tf_CreateNewPostFrame_PostTitle.getText();
-            String text = tf_CreateNewPostFrame_PostBody.getText();
-            int forum = 0;
-            
-            infDB.createPost(title, text, forum, "rGroup6");
+            infDB.createPost(title, text, forum, windowParameter);
+        }
+        else if (windowParameter.equals("rGroup2"))
+        {
+            infDB.createPost(title, text, forum, windowParameter);
+        }
+        else if (windowParameter.equals("rGroup3"))
+        {
+            infDB.createPost(title, text, forum, windowParameter);
+        }
+        else if (windowParameter.equals("rGroup4"))
+        {
+            infDB.createPost(title, text, forum, windowParameter);
+        }
+        else if (windowParameter.equals("rGroup5"))
+        {
+            infDB.createPost(title, text, forum, windowParameter);
+        }
+        else if (windowParameter.equals("rGroup6"))
+        {
+            infDB.createPost(title, text, forum, windowParameter);
         }
         
-        
+        this.dispose();
         
     }//GEN-LAST:event_btn_CreateNewPostFrame_PostActionPerformed
 
