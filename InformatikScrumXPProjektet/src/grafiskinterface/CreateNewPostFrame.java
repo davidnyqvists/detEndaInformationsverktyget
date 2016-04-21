@@ -5,20 +5,26 @@
  */
 package grafiskinterface;
 
+import databas.DBClass;
+
 /**
  *
  * @author Simon
  */
 public class CreateNewPostFrame extends javax.swing.JFrame {
 
-    static String temp;
+    private DBClass infDB;
+    
+    
+    static String windowParameter;
     /**
      * Creates new form CreateNewPostFrame
      */
     public CreateNewPostFrame(String param) {
         initComponents();
         this.setLocationRelativeTo(null);
-        temp = param;
+        windowParameter = param;
+        infDB = new DBClass();
     }
     
     
@@ -110,9 +116,13 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
 
     private void btn_CreateNewPostFrame_PostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CreateNewPostFrame_PostActionPerformed
         
-        if (temp == "rGroup6")
+        if (windowParameter.equals("rGroup6"))
         {
+            String title = tf_CreateNewPostFrame_PostTitle.getText();
+            String text = tf_CreateNewPostFrame_PostBody.getText();
+            int forum = 0;
             
+            infDB.createPost(title, text, forum, "rGroup6");
         }
         
         
@@ -153,7 +163,7 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateNewPostFrame(temp).setVisible(true);
+                new CreateNewPostFrame(windowParameter).setVisible(true);
             }
         });
     }

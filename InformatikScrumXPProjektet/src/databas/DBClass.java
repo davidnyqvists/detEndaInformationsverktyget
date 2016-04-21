@@ -305,7 +305,7 @@ public class DBClass {
         return namn;
     }
     
-    public void createPost(String title, String text, int correctForum)
+    public void createPost(String title, String text, int correctForum, String ResearchGroup)
     {
         try {
             //Inserts the post into the main post table and assigns the post an incremented value.
@@ -321,6 +321,9 @@ public class DBClass {
             if (correctForum == 0)
             {
                 forum = "POST_FORSKNING";
+                sql = "INSERT INTO "+forum+" (POSTID, PERSONID, DATE_TIMEID, RESEARCHGROUP) "
+                        + "VALUES ("+lastID+", "+personID+" '"+1+"','"+ResearchGroup+"')";
+                idb.insert(sql);               
             }
             else if(correctForum == 1)
                     {
@@ -427,6 +430,23 @@ public class DBClass {
     
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+    
+    /*
+    public void createPost(String forum, String group, String postTitle,String postText)
+    {
+        try {
+        //Query for inserting the post into the main post table.
+        String sql = "INSERT INTO POST (POSTID, TITLE, TEXT) VALUES ("+ idb.getAutoIncrement("POST", "POSTID") +", "+postTitle+", "+postText+")";
+        idb.insert(sql);
+        
+        sql = "";
+
+        } catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    */
+    
     
 }
     
