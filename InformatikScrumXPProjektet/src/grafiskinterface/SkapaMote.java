@@ -78,18 +78,6 @@ public class SkapaMote extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Skapa nytt möte");
 
-        cb_SkapaMote_deltagare.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_SkapaMote_deltagareActionPerformed(evt);
-            }
-        });
-
-        cb_SkapaMote_sal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_SkapaMote_salActionPerformed(evt);
-            }
-        });
-
         jScrollPane1.setViewportView(tf_SkapaMote_deltagandePersoner);
 
         lbl_SkapaMote_deltagare.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -325,14 +313,10 @@ public class SkapaMote extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cb_SkapaMote_salActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_SkapaMote_salActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb_SkapaMote_salActionPerformed
-
-    private void cb_SkapaMote_deltagareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_SkapaMote_deltagareActionPerformed
-        
-    }//GEN-LAST:event_cb_SkapaMote_deltagareActionPerformed
-
+    /**
+     * Creates a new meeting. Inserts into to database.
+     * @param evt 
+     */
     private void btn_SkapaMote_skapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SkapaMote_skapaActionPerformed
         //Inserts dateTime into the database. Saves the query in a string
         String sqlQuery = database.insertDateToDate_Time(getChoosenDate());      
@@ -358,8 +342,10 @@ public class SkapaMote extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_SkapaMote_skapaActionPerformed
     
+    /**
+     * Under progress. Inserts the Dates and Time into DATE_TIME table
+     */
     public void insertDateTime(){
-        //ListModel<String> dates = new ListModel<String>();
        DefaultListModel<String> dlm = (DefaultListModel<String>) jList_SkapaMote_Starttider.getModel();
        ArrayList<String> dateList = new ArrayList<String>();
        
@@ -406,7 +392,7 @@ public class SkapaMote extends javax.swing.JFrame {
    
 
     /**
-     * Lägger till ett möte. Returnerar sql frågan
+     * Inserts a new meeting into MEETING table. Returns the meetingID.
      */
     public String laggTillMote() {
        
@@ -425,7 +411,12 @@ public class SkapaMote extends javax.swing.JFrame {
         return meetingID;    
     }
     
-    
+    /**
+     * Inserts into MEETING_TIME table
+     * @param meetingID
+     * @param dateTimeID
+     * @return Returns the meeting_timeID
+     */
     public String insertMEETING_TIME(String meetingID, String dateTimeID){
         String sqlQuery = database.addMeetingTime(meetingID, dateTimeID);
         //Get the id
@@ -433,6 +424,12 @@ public class SkapaMote extends javax.swing.JFrame {
         return meeting_timeID;
     }
     
+    /**
+     * Returns the id of a string.
+     * It takes in a sqlQuery string, and splits the string first by a parenthes and then by a comma.
+     * @param sqlQuery
+     * @return Returns the id.
+     */
     public String getIDwithOneSplit(String sqlQuery){
         String[] firstsplit = sqlQuery.split("[(]");
         
@@ -441,15 +438,23 @@ public class SkapaMote extends javax.swing.JFrame {
         return dateTimeID[0];
     }
     
+    /**
+     * Returns the id of a string.
+     * It takes in a sqlQuery string, and splits the string first by a parenthes (the second parenthes) and then by a comma.
+     * @param sqlQuery
+     * @return Returns the id
+     */
     public String getIDwithTwoSplits(String sqlQuery){
         String[] firstsplit = sqlQuery.split("[(]");
-        
-        //First split is INSERT INTO MEETING, second is MEETINGID,TITLE,..... and third is the values we want.
         String[] meetingID = firstsplit[2].split(",");
-        return meetingID[0];
-        
+        return meetingID[0];    
     }
     
+    /**
+     * Inserts the MEETING_TIMEID into the MEETING table.
+     * @param meetingID
+     * @param meetingTimeID 
+     */
     public void addMeetingTimeToMeeting(String meetingID, String meetingTimeID){
         database.addMeetingTimeToMeeting(meetingID, meetingTimeID);
     }
@@ -470,7 +475,10 @@ public class SkapaMote extends javax.swing.JFrame {
             }
     }
      
-     
+     /**
+      * Inserts the selected people into the table ATTENDEES.
+      * @param meetingID 
+      */
      private void addPeopleToAttendees(String meetingID){
          //Adds people to an array
         String allaPersoner = tf_SkapaMote_deltagandePersoner.getText();
