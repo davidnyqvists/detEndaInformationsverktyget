@@ -30,6 +30,7 @@ public class AccountManagement extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         laggTillNamn();
+        laggTillNamn2();
     }
 
     /**
@@ -47,6 +48,22 @@ public class AccountManagement extends javax.swing.JFrame {
         }
 
     }
+    
+     public void laggTillNamn2() {
+        String sql = "Select NAME FROM PERSON";
+        ArrayList<HashMap<String, String>> projektLista = dataBase.hamtaAlla(sql);
+        for (int i = 0; i < projektLista.size(); i++) {
+            cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1.addItem(projektLista.get(i).get("NAME"));
+
+        }
+
+    }
+    
+    
+    
+    
+    
+    
 
     public void getInfo() {
         // Fyller namnfältet
@@ -112,6 +129,97 @@ public class AccountManagement extends javax.swing.JFrame {
         }
 
     }
+    
+    public void taBortAnstalld()
+    {
+String valtNamn = cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1.getSelectedItem().toString();
+        String sqlPid = "SELECT PERSONID FROM PERSON WHERE NAME = '" + valtNamn + "'";
+        String pid = dataBase.getId(sqlPid);
+        
+        // nummer 1
+        String sqlDelete = "DELETE FROM PERSON_SYSTEM_ADMIN WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete);
+dataBase.getId(sqlDelete);
+
+//nummer2
+String sqlDelete2 = "DELETE FROM PERSON_FORSKNING WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete);
+dataBase.getId(sqlDelete2);
+
+//nummer3
+String sqlDelete3 = "DELETE FROM PERSON_FORSKNING_ADMIN WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete);
+dataBase.getId(sqlDelete3);
+
+//nummer4
+String sqlDelete4 = "DELETE FROM PERSON_UTBILDNING WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete);
+dataBase.getId(sqlDelete4);
+
+
+
+//NUMMER6
+String sqlDelete6 = "DELETE FROM PERSON_UTBILDNING_ADMIN WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete);
+dataBase.getId(sqlDelete6);
+
+//NUMMER7
+String sqlDelete7 = "DELETE FROM POST_FORSKNING WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete);
+dataBase.getId(sqlDelete7);
+    
+    //NUMMER8
+String sqlDelete8 = "DELETE FROM POST_FORSKNING WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete8);
+dataBase.getId(sqlDelete8);
+    
+     //NUMMER9
+String sqlDelete9 = "DELETE FROM POST_FORSKNING_NEWS WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete9);
+dataBase.getId(sqlDelete9);
+    
+//NUMMER10
+String sqlDelete10 = "DELETE FROM POST_INFORMAL WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete10);
+dataBase.getId(sqlDelete10);
+    
+//NUMMER11
+String sqlDelete11 = "DELETE FROM POST_UTBILDNING WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete11);
+dataBase.getId(sqlDelete11);
+
+//NUMMER12
+String sqlDelete12 = "DELETE FROM POST_UTBILDNING_NEWS WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete12);
+dataBase.getId(sqlDelete12);
+    
+    //NUMMER13
+String sqlDelete13 = "DELETE FROM TIME_CHOICES WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete13);
+dataBase.getId(sqlDelete13);
+
+//NUMMER14
+String sqlDelete14 = "DELETE FROM ATTENDEES WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete14);
+dataBase.getId(sqlDelete14);
+
+//NUMMER15
+String sqlDelete15 = "DELETE FROM MEETING WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete15);
+dataBase.getId(sqlDelete15);
+
+//NUMMER16
+String sqlDelete16 = "DELETE FROM PERSON WHERE PERSONID = '" + pid + "'";
+        System.out.println(sqlDelete16);
+dataBase.getId(sqlDelete16);
+    }
+    
+    
+    
+    
+    
+    
+    
 
     public void updateInfo() {
         String valtNamn = cb_AccountManagement_MainPanel_AndraKonto_AccountChooser.getSelectedItem().toString();
@@ -203,8 +311,8 @@ public class AccountManagement extends javax.swing.JFrame {
         jCheckBox9 = new javax.swing.JCheckBox();
         jCheckBox10 = new javax.swing.JCheckBox();
         jButton4 = new javax.swing.JButton();
-        cb_AccountManagement_MainPanel_AndraKonto_AccountChooser1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1 = new javax.swing.JComboBox<>();
+        s = new javax.swing.JButton();
         LaggTillKonto = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         lbl_AccountManagement_LaggTillKonto_name = new javax.swing.JLabel();
@@ -313,9 +421,14 @@ public class AccountManagement extends javax.swing.JFrame {
 
         jButton4.setText("Välj");
 
-        cb_AccountManagement_MainPanel_AndraKonto_AccountChooser1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton1.setText("Ta bort konto");
+        s.setText("Ta bort konto");
+        s.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TaBortKontoLayout = new javax.swing.GroupLayout(TaBortKonto);
         TaBortKonto.setLayout(TaBortKontoLayout);
@@ -325,10 +438,10 @@ public class AccountManagement extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4)
-                    .addComponent(cb_AccountManagement_MainPanel_AndraKonto_AccountChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TaBortKontoLayout.createSequentialGroup()
                 .addContainerGap(416, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(s)
                 .addContainerGap())
             .addGroup(TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(TaBortKontoLayout.createSequentialGroup()
@@ -356,11 +469,11 @@ public class AccountManagement extends javax.swing.JFrame {
             TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TaBortKontoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cb_AccountManagement_MainPanel_AndraKonto_AccountChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(s)
                 .addContainerGap())
             .addGroup(TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(TaBortKontoLayout.createSequentialGroup()
@@ -789,6 +902,10 @@ public class AccountManagement extends javax.swing.JFrame {
         updateInfo();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sActionPerformed
+        taBortAnstalld();
+    }//GEN-LAST:event_sActionPerformed
+
     public boolean doesPersonExistInDatabase(String username) {
         String sql = "select username from person";
         ArrayList<String> A;
@@ -861,7 +978,7 @@ public class AccountManagement extends javax.swing.JFrame {
     private javax.swing.JButton btn_AccountManagement_MainPanel_Loggaut;
     private javax.swing.JButton btn_AccountManagement_MainPanel_TaBortKonto;
     private javax.swing.JComboBox<String> cb_AccountManagement_MainPanel_AndraKonto_AccountChooser;
-    private javax.swing.JComboBox<String> cb_AccountManagement_MainPanel_AndraKonto_AccountChooser1;
+    private javax.swing.JComboBox<String> cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1;
     private javax.swing.JCheckBox chk_AccountManagement_AndraKonto_Education;
     private javax.swing.JCheckBox chk_AccountManagement_AndraKonto_EducationAdmin;
     private javax.swing.JCheckBox chk_AccountManagement_AndraKonto_Research;
@@ -872,7 +989,6 @@ public class AccountManagement extends javax.swing.JFrame {
     private javax.swing.JCheckBox chk_AccountManagement_LaggTillKonto_Research;
     private javax.swing.JCheckBox chk_AccountManagement_LaggTillKonto_ResearchAdmin;
     private javax.swing.JCheckBox chk_AccountManagement_LaggTillKonto_SystemAdmin;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -897,6 +1013,7 @@ public class AccountManagement extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_RepeatPassword;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_name;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_username;
+    private javax.swing.JButton s;
     private javax.swing.JTextField tf_AccountManagement_LaggTillKonto_Name;
     private javax.swing.JPasswordField tf_AccountManagement_LaggTillKonto_Password;
     private javax.swing.JTextField tf_AccountManagement_LaggTillKonto_Username;
