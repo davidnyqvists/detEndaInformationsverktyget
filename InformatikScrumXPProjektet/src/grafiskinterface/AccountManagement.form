@@ -276,13 +276,17 @@
                                                   <Component id="chk_AccountManagement_LaggTillKonto_ResearchAdmin" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="chk_AccountManagement_LaggTillKonto_SystemAdmin" min="-2" max="-2" attributes="0"/>
                                               <Component id="btn_AccountManagement_LaggTillKonto_save" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Component id="lbl_AccountManagement_Error" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="70" max="32767" attributes="0"/>
@@ -324,7 +328,9 @@
                               <Component id="chk_AccountManagement_LaggTillKonto_EducationAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_AccountManagement_LaggTillKonto_save" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="105" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="lbl_AccountManagement_Error" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="56" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -411,6 +417,14 @@
                 <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_SystemAdmin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="S.Admin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_Error">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="33" green="33" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Var v&#xe4;nlig kontrollera att f&#xe4;lten &#xe4;r korrekt ifyllda"/>
                   </Properties>
                 </Component>
               </SubComponents>
