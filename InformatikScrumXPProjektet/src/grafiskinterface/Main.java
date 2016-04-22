@@ -27,6 +27,7 @@ public class Main extends javax.swing.JFrame {
         //Locks the forums which the user doesn't have post rights in.
         lockPostRights();
         
+        
     }
 
     /**
@@ -839,6 +840,7 @@ public class Main extends javax.swing.JFrame {
             btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost.setEnabled(false);
         }
     }
+    
     
     
     

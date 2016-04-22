@@ -387,6 +387,51 @@ public class DBClass {
     private void fillForums()
     {
         
+        String sql = "SELECT POSTID FROM POST_FORSKNING";
+        String sqlResearch= "SELECT POSTID FROM POST";
+        
+        ArrayList<String> forumPostIDs = new ArrayList<>(); //Holds the research forum post IDs.
+        ArrayList<String> postIDs = new ArrayList<>(); //Holds the forum post ID.
+        ArrayList<String> printOutIDs = new ArrayList<>();
+        
+        //Loops through all the IDs in both of the lists, compares them, and if they match, they 
+        // get added to the printOutIDs, which will fetch the post data.
+        try { 
+            forumPostIDs = idb.fetchColumn(sqlResearch);
+            postIDs = idb.fetchColumn(sql);
+            
+            for(int i = 0; i < forumPostIDs.size(); i++)
+            {
+                String currentForumID = forumPostIDs.get(i); //holds the forum current ID in the list.
+                
+                for(int x = 0; x < postIDs.size(); x++)
+                {
+                    String currentID = postIDs.get(x); //holds the current ID in the list.
+                    
+                    if (currentForumID.equals(currentID))
+                    {
+                        printOutIDs.add(currentID); //adds a matching ID in to the printOutID list.
+                    }   
+                }    
+            }
+        
+            for (int i = 0; i < printOutIDs.size(); i++)
+            {
+                String sqlTitle = "SELECT TITLE FROM POST WHERE POSTID = "+printOutIDs.get(i);
+                String sqlText ="SELECT TEXT FROM POST WHERE POST ID = "+printOutIDs.get(i);
+                sqlResearch = "SELECT RESEARCHGROUP FROM POST_FORSKNING WHERE POSTID = "+printOutIDs.get(i);
+                
+                String postTitle = idb.fetchSingle(sqlTitle);
+                String postText = idb.fetchSingle(sqlText);
+                String postResearch = idb.fetchSingle(sqlResearch);
+                
+                //Orkar inte jobba mer idag.
+            }
+            
+            
+        } catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
     }
     
     
