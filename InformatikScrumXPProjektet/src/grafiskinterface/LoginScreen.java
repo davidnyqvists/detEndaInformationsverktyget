@@ -32,6 +32,7 @@ public class LoginScreen extends javax.swing.JFrame {
         currentLoginH = new CurrentLoginHolder();
         lbl_LoginScreen_ErrorMessage.setVisible(false);
         validate = new ValidateClassOne();
+        lbl_LoginScreen_ErrorMessageValidate.setVisible(false);
     }
 
     /**
@@ -52,6 +53,7 @@ public class LoginScreen extends javax.swing.JFrame {
         pf_LoginScreen_Password = new javax.swing.JPasswordField();
         btn_LoginScreen_KontoHantering = new javax.swing.JButton();
         lbl_LoginScreen_ErrorMessage = new javax.swing.JLabel();
+        lbl_LoginScreen_ErrorMessageValidate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +92,9 @@ public class LoginScreen extends javax.swing.JFrame {
         lbl_LoginScreen_ErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
         lbl_LoginScreen_ErrorMessage.setText("Inkorrekt användarnamn eller lösenord vänligen kontrollera uppgifter");
 
+        lbl_LoginScreen_ErrorMessageValidate.setForeground(new java.awt.Color(255, 0, 51));
+        lbl_LoginScreen_ErrorMessageValidate.setText("Var vänlig kontrollera att fälten är korrekt ifyllda");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,13 +112,18 @@ public class LoginScreen extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_LoginScreen_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_LoginScreen_Username))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_LoginScreen_Password)
-                            .addComponent(pf_LoginScreen_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_LoginScreen_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_LoginScreen_Username))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_LoginScreen_Password)
+                                    .addComponent(pf_LoginScreen_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(51, 51, 51))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_LoginScreen_ErrorMessageValidate, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,16 +137,18 @@ public class LoginScreen extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl_LoginScreen_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_LoginScreen_Username)
                     .addComponent(lbl_LoginScreen_Password))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tf_LoginScreen_Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pf_LoginScreen_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(lbl_LoginScreen_ErrorMessage)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_LoginScreen_ErrorMessage)
+                    .addComponent(lbl_LoginScreen_ErrorMessageValidate))
                 .addGap(37, 37, 37)
                 .addComponent(btn_LoginScreen_KontoHantering)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -155,13 +167,18 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_LoginScreen_ExitActionPerformed
 
     private void btn_LoginScreen_LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LoginScreen_LogInActionPerformed
-        
-        
+        lbl_LoginScreen_ErrorMessageValidate.setVisible(false);
+        lbl_LoginScreen_ErrorMessage.setVisible(false);
        String username = tf_LoginScreen_Username.getText();
        String password = String.valueOf(pf_LoginScreen_Password.getPassword());
                 dataBase.logIn(username, password);
+               if(ValidateClassOne.kollaOmTomt(username) || ValidateClassOne.kollaOmTomt(password))
+               {System.out.println("Tomma fält"); lbl_LoginScreen_ErrorMessageValidate.setVisible(true);}
+               else {
+                if(ValidateClassOne.kollaLangdNamn(username) && ValidateClassOne.kollaLangdNamn(password))
+                { 
                
-                if (dataBase.logIn(username, password))
+                    if (dataBase.logIn(username, password))
                 {
                    
                     //Sends the username into the Login Holder.
@@ -180,8 +197,9 @@ public class LoginScreen extends javax.swing.JFrame {
                     lbl_LoginScreen_ErrorMessage.setVisible(true);
                 }
                 
-        
-        
+                }
+                else {System.out.println("För mycket text ifyltt"); lbl_LoginScreen_ErrorMessageValidate.setVisible(true);}
+               }
     }//GEN-LAST:event_btn_LoginScreen_LogInActionPerformed
 
     private void btn_LoginScreen_KontoHanteringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LoginScreen_KontoHanteringActionPerformed
@@ -238,6 +256,7 @@ public class LoginScreen extends javax.swing.JFrame {
     private javax.swing.JButton btn_LoginScreen_KontoHantering;
     private javax.swing.JButton btn_LoginScreen_LogIn;
     private javax.swing.JLabel lbl_LoginScreen_ErrorMessage;
+    private javax.swing.JLabel lbl_LoginScreen_ErrorMessageValidate;
     private javax.swing.JLabel lbl_LoginScreen_Password;
     private javax.swing.JLabel lbl_LoginScreen_Title;
     private javax.swing.JLabel lbl_LoginScreen_Username;

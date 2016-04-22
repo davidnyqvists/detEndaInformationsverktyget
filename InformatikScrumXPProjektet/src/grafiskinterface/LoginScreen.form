@@ -38,15 +38,23 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tf_LoginScreen_Username" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                          <Component id="lbl_LoginScreen_Username" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="tf_LoginScreen_Username" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                  <Component id="lbl_LoginScreen_Username" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lbl_LoginScreen_Password" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pf_LoginScreen_Password" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="lbl_LoginScreen_ErrorMessageValidate" min="-2" pref="328" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbl_LoginScreen_Password" min="-2" max="-2" attributes="0"/>
-                          <Component id="pf_LoginScreen_Password" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -66,18 +74,21 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lbl_LoginScreen_Title" min="-2" pref="56" max="-2" attributes="0"/>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbl_LoginScreen_Username" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbl_LoginScreen_Password" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="tf_LoginScreen_Username" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pf_LoginScreen_Password" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lbl_LoginScreen_ErrorMessage" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lbl_LoginScreen_ErrorMessage" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_LoginScreen_ErrorMessageValidate" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Component id="btn_LoginScreen_KontoHantering" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -149,6 +160,14 @@
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Inkorrekt anv&#xe4;ndarnamn eller l&#xf6;senord v&#xe4;nligen kontrollera uppgifter"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_LoginScreen_ErrorMessageValidate">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Var v&#xe4;nlig kontrollera att f&#xe4;lten &#xe4;r korrekt ifyllda"/>
       </Properties>
     </Component>
   </SubComponents>
