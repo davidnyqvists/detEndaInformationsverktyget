@@ -222,7 +222,7 @@ dataBase.getId(sqlDelete16);
     
     
 
-    public void updateInfo() {
+   public void updateInfo() {
         String valtNamn = cb_AccountManagement_MainPanel_AndraKonto_AccountChooser.getSelectedItem().toString();
         String GUIName = TF_Namn.getText();
         String GUIUsername = TF_AnvNamn.getText();
@@ -233,6 +233,11 @@ dataBase.getId(sqlDelete16);
                 + "'" + GUIName + "'";
         String newPid = dataBase.getId(sqlFraga);
 
+        if(ValidateClassOne.kollaOmTomt(GUIName) || ValidateClassOne.kollaOmTomt(GUIUsername) || ValidateClassOne.kollaOmTomt(GUIPassword) || ValidateClassOne.kollaOmTomt(GUIConfirmPassword))
+        {lbl_AccountManagement_ErrorAndra.setVisible(true);}
+        else {
+            if(ValidateClassOne.kollaLangdNamn(GUIName) && ValidateClassOne.kollaLangdNamn(GUIUsername) && ValidateClassOne.kollaLangdNamn(GUIPassword) && ValidateClassOne.kollaLangdNamn(GUIConfirmPassword))
+            {
         String sqlGuiUserName = "UPDATE PERSON SET PERSON.USERNAME = '" + GUIUsername + "' WHERE PERSON.NAME = '" + valtNamn + "' ";
         dataBase.getId(sqlGuiUserName);
 
@@ -241,7 +246,7 @@ dataBase.getId(sqlDelete16);
 
         String sqlGuiName = "UPDATE PERSON SET PERSON.NAME = '" + GUIName + "' WHERE PERSON.NAME = '" + valtNamn + "' ";
         dataBase.getId(sqlGuiName);
-
+System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName);
         //sqlMethods = dataBase.returnDatabase();
         if (chk_AccountManagement_AndraKonto_Research.isSelected() == true) {
             dataBase.insertIntoTable("PERSON_FORSKNING", newPid);
@@ -286,6 +291,9 @@ dataBase.getId(sqlDelete16);
             dataBase.getId("DELETE FROM PERSON_SYSTEM_ADMIN WHERE PERSON_SYSTEM_ADMIN.PERSONID = '" + newPid + "'");
         }
 
+            }
+            else{lbl_AccountManagement_ErrorAndra.setVisible(true);}
+        }
         }
 
     @SuppressWarnings("unchecked")
@@ -339,6 +347,7 @@ dataBase.getId(sqlDelete16);
         chk_AccountManagement_AndraKonto_SystemAdmin = new javax.swing.JCheckBox();
         TF_Losen2 = new javax.swing.JTextField();
         TF_Losen = new javax.swing.JTextField();
+        lbl_AccountManagement_ErrorAndra = new javax.swing.JLabel();
         btn_AccountManagement_MainPanel_Dictionary = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -428,7 +437,7 @@ dataBase.getId(sqlDelete16);
                 .addComponent(s)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         CardPanelHolder.add(TaBortKonto, "card3");
@@ -547,7 +556,7 @@ dataBase.getId(sqlDelete16);
                     .addComponent(btn_AccountManagement_LaggTillKonto_save))
                 .addGap(34, 34, 34)
                 .addComponent(lbl_AccountManagement_Error)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         CardPanelHolder.add(LaggTillKonto, "card1");
@@ -600,6 +609,10 @@ dataBase.getId(sqlDelete16);
             }
         });
 
+        lbl_AccountManagement_ErrorAndra.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_AccountManagement_ErrorAndra.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_AccountManagement_ErrorAndra.setText("Var vänlig kontrollera att fälten är korrekt ifyllda.");
+
         javax.swing.GroupLayout AndraKontoLayout = new javax.swing.GroupLayout(AndraKonto);
         AndraKonto.setLayout(AndraKontoLayout);
         AndraKontoLayout.setHorizontalGroup(
@@ -640,6 +653,10 @@ dataBase.getId(sqlDelete16);
                             .addComponent(jLabel14))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AndraKontoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_AccountManagement_ErrorAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
         );
         AndraKontoLayout.setVerticalGroup(
             AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -677,7 +694,9 @@ dataBase.getId(sqlDelete16);
                     .addComponent(chk_AccountManagement_AndraKonto_EducationAdmin)
                     .addComponent(jButton3)
                     .addComponent(chk_AccountManagement_AndraKonto_Education))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(lbl_AccountManagement_ErrorAndra)
+                .addGap(32, 32, 32))
         );
 
         CardPanelHolder.add(AndraKonto, "card2");
@@ -954,6 +973,7 @@ dataBase.getId(sqlDelete16);
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel lbl_AccountManagement_Error;
+    private javax.swing.JLabel lbl_AccountManagement_ErrorAndra;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_Password;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_RepeatPassword;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_name;
