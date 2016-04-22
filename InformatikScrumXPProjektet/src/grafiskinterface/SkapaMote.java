@@ -318,9 +318,11 @@ public class SkapaMote extends javax.swing.JFrame {
      * @param evt 
      */
     private void btn_SkapaMote_skapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SkapaMote_skapaActionPerformed
-        /*
-        //Inserts dateTime into the database. Saves the query in a string
-        String sqlQuery = database.insertDateToDate_Time(getChoosenDate());      
+        saveDateTimeArrayListToDatabase((DefaultListModel) jList_SkapaMote_Starttider.getModel());
+        getDateTimeIDsFromTimecodes(returnDateTimeArray((DefaultListModel) jList_SkapaMote_Starttider.getModel()));
+    
+    //ArrayList<String> chosenTimeIDs = getAllDateTimeIDs (DefaultListModel) jList_SkapaMote_Starttider.getModel());
+    /*
         //Gets the dateTimeID
         String dateTimeID = getIDwithOneSplit(sqlQuery);
         
@@ -339,6 +341,7 @@ public class SkapaMote extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte");
         //Rensa all input i fälten.
         */
+
         
         
     }//GEN-LAST:event_btn_SkapaMote_skapaActionPerformed
@@ -346,17 +349,40 @@ public class SkapaMote extends javax.swing.JFrame {
     /**
      * Under progress. Inserts the Dates and Time into DATE_TIME table
      */
-    public void insertDateTime(){
-       DefaultListModel<String> dlm = (DefaultListModel<String>) jList_SkapaMote_Starttider.getModel();
+            public ArrayList<String> returnDateTimeArray(DefaultListModel<String> thisListModel){
+       DefaultListModel<String> dlm = thisListModel;
        ArrayList<String> dateList = new ArrayList<String>();
        
+       if (!dlm.isEmpty()) {
        //Saves the choosen dates into a arraylist
        for (int i = 0; i < dlm.getSize(); i++){
            dateList.add(dlm.get(i));
        }  
-       
-       database.insertDateToDate_Time(dateList);
     }
+       else {
+           JOptionPane.showMessageDialog(null, "Please some dates and times for this meeting");
+       }
+       
+       return dateList;
+       
+    }
+    
+    private void saveDateTimeArrayListToDatabase(DefaultListModel thisModel) {
+        ArrayList<String> dateList = returnDateTimeArray(thisModel);
+        database.insertDateToDate_Time(dateList);
+    }
+    
+    /**This method will receive an arraylist of datetime timecode strings
+     * It will return an arraylist of IDs for these strings
+     * @param arrayList<String> dateTimeStrings
+     * @return arrayList<String> dateTimeIDs
+     */
+     private ArrayList<String> getDateTimeIDsFromTimecodes(ArrayList<String> dateTimeStrings) {
+        ArrayList<String> dateTimeIDs = new ArrayList<String>();
+         return dateTimeIDs;
+    }
+
+
     
     /**
      * Gets the choosen date (from datepicker) and time (dropbox) to a string (YYYY-MM-dd HH:mm:ss)
