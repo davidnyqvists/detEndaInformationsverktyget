@@ -32,6 +32,7 @@ public class AccountManagement extends javax.swing.JFrame {
         laggTillNamn();
         laggTillNamn2();
         lbl_AccountManagement_Error.setVisible(false);
+        lbl_AccountManagement_ErrorAndra.setVisible(false);
     }
 
     /**
@@ -223,6 +224,7 @@ dataBase.getId(sqlDelete16);
     
 
    public void updateInfo() {
+        lbl_AccountManagement_ErrorAndra.setVisible(false); 
         String valtNamn = cb_AccountManagement_MainPanel_AndraKonto_AccountChooser.getSelectedItem().toString();
         String GUIName = TF_Namn.getText();
         String GUIUsername = TF_AnvNamn.getText();
@@ -790,6 +792,7 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
     }//GEN-LAST:event_btn_AccountManagement_MainPanel_TaBortKontoActionPerformed
 
     private void btn_AccountManagement_LaggTillKonto_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountManagement_LaggTillKonto_saveActionPerformed
+        lbl_AccountManagement_Error.setVisible(false);
         String GUIName = tf_AccountManagement_LaggTillKonto_Name.getText();
         String GUIUsername = tf_AccountManagement_LaggTillKonto_Username.getText();
         String GUIPassword = String.valueOf(tf_AccountManagement_LaggTillKonto_Password.getPassword());
