@@ -300,19 +300,9 @@ dataBase.getId(sqlDelete16);
         CardPanelHolder = new javax.swing.JPanel();
         TaBortKonto = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        jPasswordField9 = new javax.swing.JPasswordField();
-        jLabel26 = new javax.swing.JLabel();
-        jPasswordField10 = new javax.swing.JPasswordField();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jButton4 = new javax.swing.JButton();
         cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1 = new javax.swing.JComboBox<>();
         s = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         LaggTillKonto = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         lbl_AccountManagement_LaggTillKonto_name = new javax.swing.JLabel();
@@ -391,36 +381,12 @@ dataBase.getId(sqlDelete16);
         CardPanelHolder.setBackground(new java.awt.Color(153, 153, 153));
         CardPanelHolder.setLayout(new java.awt.CardLayout());
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel22.setText("Ta bort konto");
         jLabel22.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
-        jLabel23.setText("Namn");
-
-        jTextField9.setEditable(false);
-
-        jLabel24.setText("Användarnamn");
-
-        jTextField10.setEditable(false);
-
-        jLabel25.setText("Lösenord");
-
-        jPasswordField9.setEditable(false);
-        jPasswordField9.setName(""); // NOI18N
-
-        jLabel26.setText("Upprepa lösenord");
-
-        jPasswordField10.setEditable(false);
-        jPasswordField10.setName(""); // NOI18N
-
-        jCheckBox9.setText("Forskning");
-        jCheckBox9.setEnabled(false);
-
-        jCheckBox10.setText("Utbildning");
-        jCheckBox10.setEnabled(false);
-
-        jButton4.setText("Välj");
-
+        s.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        s.setForeground(new java.awt.Color(255, 0, 0));
         s.setText("Ta bort konto");
         s.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -428,76 +394,39 @@ dataBase.getId(sqlDelete16);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel1.setText("Varning!! Detta raderar användaren från systemet");
+
         javax.swing.GroupLayout TaBortKontoLayout = new javax.swing.GroupLayout(TaBortKonto);
         TaBortKonto.setLayout(TaBortKontoLayout);
         TaBortKontoLayout.setHorizontalGroup(
             TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TaBortKontoLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(TaBortKontoLayout.createSequentialGroup()
                 .addGroup(TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
-                    .addComponent(cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TaBortKontoLayout.createSequentialGroup()
-                .addContainerGap(416, Short.MAX_VALUE)
-                .addComponent(s)
-                .addContainerGap())
-            .addGroup(TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(TaBortKontoLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTextField10)
-                        .addComponent(jPasswordField9)
-                        .addComponent(jPasswordField10)
-                        .addGroup(TaBortKontoLayout.createSequentialGroup()
-                            .addComponent(jCheckBox10)
-                            .addGap(162, 162, 162))
-                        .addGroup(TaBortKontoLayout.createSequentialGroup()
-                            .addGroup(TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel22)
-                                .addComponent(jLabel24)
-                                .addComponent(jLabel25)
-                                .addComponent(jLabel26)
-                                .addComponent(jLabel23)
-                                .addComponent(jCheckBox9))
-                            .addGap(0, 0, Short.MAX_VALUE)))
-                    .addContainerGap()))
+                    .addGroup(TaBortKontoLayout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addGroup(TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(s, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel22)
+                            .addComponent(cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(TaBortKontoLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel1)))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         TaBortKontoLayout.setVerticalGroup(
             TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TaBortKontoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
+                .addComponent(cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(178, 178, 178)
                 .addComponent(s)
-                .addContainerGap())
-            .addGroup(TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(TaBortKontoLayout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addComponent(jLabel22)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(4, 4, 4)
-                    .addComponent(jLabel24)
-                    .addGap(2, 2, 2)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel25)
-                    .addGap(3, 3, 3)
-                    .addComponent(jPasswordField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel26)
-                    .addGap(1, 1, 1)
-                    .addComponent(jPasswordField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jCheckBox9)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jCheckBox10)
-                    .addContainerGap(184, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         CardPanelHolder.add(TaBortKonto, "card3");
@@ -574,7 +503,7 @@ dataBase.getId(sqlDelete16);
                                 .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(chk_AccountManagement_LaggTillKonto_SystemAdmin)
                                     .addComponent(btn_AccountManagement_LaggTillKonto_save))))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         LaggTillKontoLayout.setVerticalGroup(
             LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -608,7 +537,7 @@ dataBase.getId(sqlDelete16);
                     .addComponent(chk_AccountManagement_LaggTillKonto_Education)
                     .addComponent(chk_AccountManagement_LaggTillKonto_EducationAdmin)
                     .addComponent(btn_AccountManagement_LaggTillKonto_save))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         CardPanelHolder.add(LaggTillKonto, "card1");
@@ -679,7 +608,7 @@ dataBase.getId(sqlDelete16);
                             .addComponent(cb_AccountManagement_MainPanel_AndraKonto_AccountChooser, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(AndraKontoLayout.createSequentialGroup()
                                 .addComponent(jButton2)
-                                .addGap(0, 319, Short.MAX_VALUE))))
+                                .addGap(0, 357, Short.MAX_VALUE))))
                     .addComponent(TF_Losen2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TF_Losen, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AndraKontoLayout.createSequentialGroup()
@@ -738,7 +667,7 @@ dataBase.getId(sqlDelete16);
                     .addComponent(chk_AccountManagement_AndraKonto_EducationAdmin)
                     .addComponent(jButton3)
                     .addComponent(chk_AccountManagement_AndraKonto_Education))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         CardPanelHolder.add(AndraKonto, "card2");
@@ -999,9 +928,7 @@ dataBase.getId(sqlDelete16);
     private javax.swing.JCheckBox chk_AccountManagement_LaggTillKonto_SystemAdmin;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1009,14 +936,6 @@ dataBase.getId(sqlDelete16);
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JPasswordField jPasswordField10;
-    private javax.swing.JPasswordField jPasswordField9;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_Password;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_RepeatPassword;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_name;
