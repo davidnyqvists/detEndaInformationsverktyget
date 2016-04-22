@@ -11,6 +11,13 @@ package Validering;
  */
 public class ValidateClass {
     
+    public ValidateClass(){}
+    
+    
+    
+    
+    
+    
      //Metod 2 som kollar om man skrivit in något lösenord   
 
     public static boolean kollaOmTomt(String inText) {
