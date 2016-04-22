@@ -28,6 +28,7 @@ public class LoginScreen extends javax.swing.JFrame {
         dataBase = new DBClass();
         this.setLocationRelativeTo(null);
         initComponents();
+        currentLoginH = new CurrentLoginHolder();
         
         lbl_LoginScreen_ErrorMessage.setVisible(false);
     }
@@ -166,9 +167,7 @@ public class LoginScreen extends javax.swing.JFrame {
                     //Login Holder will send to to database and set values
                     //in the Current Login.
                     
-                    //currentLoginH.fetchIDofLogIn(username);
-                 
-                    //currentLoginH.test();
+                    currentLoginH.fetchIDofLogIn(username);
                     
                     GrafikHelper.DisposeFrame();
                     GrafikHelper.InitieraMain();

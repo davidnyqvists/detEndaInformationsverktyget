@@ -451,6 +451,10 @@ public class DBClass {
         } catch (InfException e) {
             System.out.println(e.getMessage());
         }
+        
+        if(access == null)
+            access = "";
+            
         //If the user has access, the method returns true, else the method returns false.
         if (access.equals("")) {
             return false;

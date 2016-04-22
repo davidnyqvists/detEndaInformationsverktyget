@@ -72,6 +72,14 @@ public class CurrentLoginHolder {
         CurrentLogin.setResearchAdmin(isResearchAdmin);
         CurrentLogin.setUtbildning(isEducation);
         CurrentLogin.setForskning(isResearch);
+        
+        //Test prints
+        System.out.print("ID of logged in person: " + CurrentLogin.getId() + "\n");
+        System.out.print("Is system admin: "+ CurrentLogin.isSystemAmdmin() + "\n");
+        System.out.print("Is Education admin: "+ CurrentLogin.isEducationAdmin() + "\n");
+        System.out.print("Is Research admin: "+ CurrentLogin.isResearchAdmin() + "\n");
+        System.out.print("Is Education employee: "+ CurrentLogin.isUtbildning() + "\n");
+        System.out.print("Is Research employee: "+ CurrentLogin.isForskning() + "\n");
         }
         catch(Exception e)
                 {
@@ -80,12 +88,7 @@ public class CurrentLoginHolder {
         
         
     }
-    
-    
-    public void test()
-        {
-            System.out.print("FUCK YOU, YOU STATIC PIECE OF SHIT");
-        }
+
     
     
     
