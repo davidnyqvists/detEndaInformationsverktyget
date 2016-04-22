@@ -173,7 +173,7 @@ public class LoginScreen extends javax.swing.JFrame {
        String password = String.valueOf(pf_LoginScreen_Password.getPassword());
                 dataBase.logIn(username, password);
                if(ValidateClassOne.kollaOmTomt(username) || ValidateClassOne.kollaOmTomt(password))
-               {System.out.println("Tomma fält"); lbl_LoginScreen_ErrorMessageValidate.setVisible(true);}
+               {lbl_LoginScreen_ErrorMessageValidate.setVisible(true);}
                else {
                 if(ValidateClassOne.kollaLangdNamn(username) && ValidateClassOne.kollaLangdNamn(password))
                 { 
@@ -198,7 +198,7 @@ public class LoginScreen extends javax.swing.JFrame {
                 }
                 
                 }
-                else {System.out.println("För mycket text ifyltt"); lbl_LoginScreen_ErrorMessageValidate.setVisible(true);}
+                else {lbl_LoginScreen_ErrorMessageValidate.setVisible(true);}
                }
     }//GEN-LAST:event_btn_LoginScreen_LogInActionPerformed
 
