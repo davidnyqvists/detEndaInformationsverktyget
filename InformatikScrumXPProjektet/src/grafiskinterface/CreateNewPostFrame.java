@@ -17,13 +17,16 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
     
     
     static String windowParameter;
+    static String forumParameter;
+    int intForum;
     /**
      * Creates new form CreateNewPostFrame
      */
-    public CreateNewPostFrame(String param) {
+    public CreateNewPostFrame(String param, String forumParam) {
         initComponents();
         this.setLocationRelativeTo(null);
         windowParameter = param;
+        forumParameter = forumParam;
         infDB = new DBClass();
     }
     
@@ -118,31 +121,33 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
         
         String title = tf_CreateNewPostFrame_PostTitle.getText();
         String text = tf_CreateNewPostFrame_PostBody.getText();
-        int forum = 0;
+        
+        if (forumParameter.equals("Research"))
+        intForum = 0;
         
         if (windowParameter.equals("rGroup1"))
         {
-            infDB.createPost(title, text, forum, windowParameter);
+            infDB.createPost(title, text, intForum, windowParameter);
         }
         else if (windowParameter.equals("rGroup2"))
         {
-            infDB.createPost(title, text, forum, windowParameter);
+            infDB.createPost(title, text, intForum, windowParameter);
         }
         else if (windowParameter.equals("rGroup3"))
         {
-            infDB.createPost(title, text, forum, windowParameter);
+            infDB.createPost(title, text, intForum, windowParameter);
         }
         else if (windowParameter.equals("rGroup4"))
         {
-            infDB.createPost(title, text, forum, windowParameter);
+            infDB.createPost(title, text, intForum, windowParameter);
         }
         else if (windowParameter.equals("rGroup5"))
         {
-            infDB.createPost(title, text, forum, windowParameter);
+            infDB.createPost(title, text, intForum, windowParameter);
         }
         else if (windowParameter.equals("rGroup6"))
         {
-            infDB.createPost(title, text, forum, windowParameter);
+            infDB.createPost(title, text, intForum, windowParameter);
         }
         
         this.dispose();
@@ -183,7 +188,7 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateNewPostFrame(windowParameter).setVisible(true);
+                new CreateNewPostFrame(windowParameter, forumParameter).setVisible(true);
             }
         });
     }
