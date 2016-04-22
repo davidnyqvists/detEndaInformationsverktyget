@@ -21,6 +21,7 @@ public class LoginScreen extends javax.swing.JFrame {
     
     private DBClass dataBase;
     private CurrentLoginHolder currentLoginH;
+    private ValidateClassOne validate;
     /**
      * Creates new form LogInRuta
      */
@@ -29,8 +30,8 @@ public class LoginScreen extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         initComponents();
         currentLoginH = new CurrentLoginHolder();
-        
         lbl_LoginScreen_ErrorMessage.setVisible(false);
+        validate = new ValidateClassOne();
     }
 
     /**
@@ -159,7 +160,7 @@ public class LoginScreen extends javax.swing.JFrame {
        String username = tf_LoginScreen_Username.getText();
        String password = String.valueOf(pf_LoginScreen_Password.getPassword());
                 dataBase.logIn(username, password);
-        
+               
                 if (dataBase.logIn(username, password))
                 {
                    

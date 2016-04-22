@@ -3,22 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Validering;
+package grafiskinterface;
 
 /**
  *
  * @author David Nyqvist
  */
-public class ValidateClass {
+public class ValidateClassOne {
     
-    public ValidateClass(){}
-    
-    
-    
-    
-    
-    
-     //Metod 2 som kollar om man skrivit in något lösenord   
+      //Metod 2 som kollar om man skrivit in något lösenord   
 
     public static boolean kollaOmTomt(String inText) {
         boolean test;
@@ -39,7 +32,18 @@ public class ValidateClass {
             test = false;
         }
         return test;
-    }
+    } 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
