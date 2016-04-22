@@ -318,6 +318,7 @@ public class SkapaMote extends javax.swing.JFrame {
      * @param evt 
      */
     private void btn_SkapaMote_skapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SkapaMote_skapaActionPerformed
+        /*
         //Inserts dateTime into the database. Saves the query in a string
         String sqlQuery = database.insertDateToDate_Time(getChoosenDate());      
         //Gets the dateTimeID
@@ -337,7 +338,7 @@ public class SkapaMote extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte");
         //Rensa all input i fälten.
-        /*Massa bra kod*/
+        */
         
         
     }//GEN-LAST:event_btn_SkapaMote_skapaActionPerformed
@@ -353,6 +354,8 @@ public class SkapaMote extends javax.swing.JFrame {
        for (int i = 0; i < dlm.getSize(); i++){
            dateList.add(dlm.get(i));
        }  
+       
+       database.insertDateToDate_Time(dateList);
     }
     
     /**

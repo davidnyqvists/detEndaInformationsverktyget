@@ -31,6 +31,7 @@ public class AccountManagement extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         laggTillNamn();
         laggTillNamn2();
+        lbl_AccountManagement_Error.setVisible(false);
     }
 
     /**
@@ -319,6 +320,7 @@ dataBase.getId(sqlDelete16);
         chk_AccountManagement_LaggTillKonto_ResearchAdmin = new javax.swing.JCheckBox();
         chk_AccountManagement_LaggTillKonto_EducationAdmin = new javax.swing.JCheckBox();
         chk_AccountManagement_LaggTillKonto_SystemAdmin = new javax.swing.JCheckBox();
+        lbl_AccountManagement_Error = new javax.swing.JLabel();
         AndraKonto = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -469,6 +471,9 @@ dataBase.getId(sqlDelete16);
 
         chk_AccountManagement_LaggTillKonto_SystemAdmin.setText("S.Admin");
 
+        lbl_AccountManagement_Error.setForeground(new java.awt.Color(255, 51, 51));
+        lbl_AccountManagement_Error.setText("Var vänlig kontrollera att fälten är korrekt ifyllda");
+
         javax.swing.GroupLayout LaggTillKontoLayout = new javax.swing.GroupLayout(LaggTillKonto);
         LaggTillKonto.setLayout(LaggTillKontoLayout);
         LaggTillKontoLayout.setHorizontalGroup(
@@ -499,10 +504,13 @@ dataBase.getId(sqlDelete16);
                                         .addComponent(chk_AccountManagement_LaggTillKonto_Research)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(chk_AccountManagement_LaggTillKonto_ResearchAdmin)))
-                                .addGap(18, 18, 18)
+                                .addGap(105, 105, 105)
                                 .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(chk_AccountManagement_LaggTillKonto_SystemAdmin)
-                                    .addComponent(btn_AccountManagement_LaggTillKonto_save))))))
+                                    .addComponent(btn_AccountManagement_LaggTillKonto_save)))))
+                    .addGroup(LaggTillKontoLayout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(lbl_AccountManagement_Error)))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         LaggTillKontoLayout.setVerticalGroup(
@@ -537,7 +545,9 @@ dataBase.getId(sqlDelete16);
                     .addComponent(chk_AccountManagement_LaggTillKonto_Education)
                     .addComponent(chk_AccountManagement_LaggTillKonto_EducationAdmin)
                     .addComponent(btn_AccountManagement_LaggTillKonto_save))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(lbl_AccountManagement_Error)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         CardPanelHolder.add(LaggTillKonto, "card1");
@@ -765,8 +775,12 @@ dataBase.getId(sqlDelete16);
         String GUIUsername = tf_AccountManagement_LaggTillKonto_Username.getText();
         String GUIPassword = String.valueOf(tf_AccountManagement_LaggTillKonto_Password.getPassword());
         String GUIConfirmPassword = String.valueOf(tf_Accountmanagement_LaggTillKonto_ChangePassword.getPassword());
-
-        sqlMethods = dataBase.returnDatabase();
+        if(ValidateClassOne.kollaOmTomt(GUIName) || ValidateClassOne.kollaOmTomt(GUIUsername) || ValidateClassOne.kollaOmTomt(GUIPassword) || ValidateClassOne.kollaOmTomt(GUIConfirmPassword))
+        {lbl_AccountManagement_Error.setVisible(true);}
+        else {
+            if(ValidateClassOne.kollaLangdNamn(GUIName) && ValidateClassOne.kollaLangdNamn(GUIUsername) && ValidateClassOne.kollaLangdNamn(GUIPassword) && ValidateClassOne.kollaLangdNamn(GUIConfirmPassword))
+            {
+            sqlMethods = dataBase.returnDatabase();
         try {
             String sqlInsert = "Insert into person values (" + sqlMethods.getAutoIncrement("Person", "PersonID") + ",'" + GUIUsername + "','" + GUIName + "','" + GUIPassword + "')";
 
@@ -808,6 +822,9 @@ dataBase.getId(sqlDelete16);
         if (chk_AccountManagement_LaggTillKonto_SystemAdmin.isSelected() == true) {
             dataBase.insertIntoTable("PERSON_SYSTEM_ADMIN", newPid);
         }
+            }
+            else {lbl_AccountManagement_Error.setVisible(true);}
+            }
     }//GEN-LAST:event_btn_AccountManagement_LaggTillKonto_saveActionPerformed
 
     private void btn_AccountManagement_MainPanel_DictionaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountManagement_MainPanel_DictionaryActionPerformed
@@ -936,6 +953,7 @@ dataBase.getId(sqlDelete16);
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel lbl_AccountManagement_Error;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_Password;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_RepeatPassword;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_name;

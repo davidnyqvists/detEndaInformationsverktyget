@@ -192,18 +192,25 @@ public class DBClass {
      * @param date A string, and should be in the form: YYYY-MM-dd HH:mm:ss
      * @return Returns the sql query.
      */
-    public String insertDateToDate_Time(String date) {
+    public String insertDateToDate_Time(ArrayList<String> dates) {
+        String status = "";
+        
         try {
-            String sql = "INSERT INTO DATE_TIME VALUES (" + idb.getAutoIncrement("DATE_TIME", "DATE_TIMEID") + ",'" + date + "')";
-            idb.insert(sql);
-            
-            //Return the created ID.
-            return sql;
+            for (String date : dates) {
+                String sql = "INSERT INTO DATE_TIME VALUES("
+                    + idb.getAutoIncrement("DATE_TIME", "DATE_TIMEID") + ", '" + date + "')";
+                System.out.println("ELEPHANT - " + sql);
+                idb.insert(sql);
+            status = "Success";
+            }
         }
         catch (InfException e) {
             System.out.println(e.getMessage());
-            return null;
+            status = "failed";
+            return status;
         }
+        
+        return status;
     }
     
     /**
