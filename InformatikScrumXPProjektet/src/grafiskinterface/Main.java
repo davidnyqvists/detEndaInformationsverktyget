@@ -212,6 +212,7 @@ public class Main extends javax.swing.JFrame {
         tpn_Main_MainMiddleWindow_Education_MainPane.setMinimumSize(new java.awt.Dimension(529, 100));
         tpn_Main_MainMiddleWindow_Education_MainPane.setPreferredSize(new java.awt.Dimension(529, 393));
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow6.setEditable(false);
         jScrollPane9.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow6);
 
         btn_Main_MainMiddleWindow_Research_MainPane_Education.setText("Nytt inlägg");
@@ -246,6 +247,7 @@ public class Main extends javax.swing.JFrame {
 
         tpn_Main_MainMiddleWindow_Education_MainPane1.addTab("Utbildning", tpn_Main_MainMiddleWindow_Education_MainPane);
 
+        jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
@@ -300,6 +302,7 @@ public class Main extends javax.swing.JFrame {
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1.setMinimumSize(new java.awt.Dimension(529, 100));
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1.setPreferredSize(new java.awt.Dimension(529, 393));
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow.setEditable(false);
         jScrollPane2.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow);
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePost.setText("Nytt inlägg");
@@ -317,7 +320,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1Layout.createSequentialGroup()
-                        .addGap(0, 424, Short.MAX_VALUE)
+                        .addGap(0, 419, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePost))
                     .addComponent(jScrollPane2))
                 .addContainerGap())
@@ -334,6 +337,7 @@ public class Main extends javax.swing.JFrame {
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 1", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1);
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow1.setEditable(false);
         jScrollPane3.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow1);
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePost.setText("Nytt inlägg");
@@ -351,7 +355,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.createSequentialGroup()
-                        .addGap(0, 424, Short.MAX_VALUE)
+                        .addGap(0, 419, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePost))
                     .addComponent(jScrollPane3))
                 .addContainerGap())
@@ -368,6 +372,7 @@ public class Main extends javax.swing.JFrame {
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 2", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2);
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow2.setEditable(false);
         jScrollPane4.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow2);
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePost.setText("Nytt inlägg");
@@ -385,7 +390,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.createSequentialGroup()
-                        .addGap(0, 424, Short.MAX_VALUE)
+                        .addGap(0, 419, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePost))
                     .addComponent(jScrollPane4))
                 .addContainerGap())
@@ -402,6 +407,7 @@ public class Main extends javax.swing.JFrame {
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 3", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3);
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow3.setEditable(false);
         jScrollPane5.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow3);
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePost.setText("Nytt inlägg");
@@ -419,7 +425,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.createSequentialGroup()
-                        .addGap(0, 424, Short.MAX_VALUE)
+                        .addGap(0, 419, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePost))
                     .addComponent(jScrollPane5))
                 .addContainerGap())
@@ -436,6 +442,7 @@ public class Main extends javax.swing.JFrame {
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 4", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4);
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow4.setEditable(false);
         jScrollPane6.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow4);
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePost.setText("Nytt inlägg");
@@ -453,7 +460,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.createSequentialGroup()
-                        .addGap(0, 424, Short.MAX_VALUE)
+                        .addGap(0, 419, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePost))
                     .addComponent(jScrollPane6))
                 .addContainerGap())
@@ -470,6 +477,7 @@ public class Main extends javax.swing.JFrame {
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 5", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5);
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow5.setEditable(false);
         jScrollPane7.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow5);
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePost.setText("Nytt inlägg");
@@ -487,7 +495,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.createSequentialGroup()
-                        .addGap(0, 424, Short.MAX_VALUE)
+                        .addGap(0, 419, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePost))
                     .addComponent(jScrollPane7))
                 .addContainerGap())
@@ -504,6 +512,7 @@ public class Main extends javax.swing.JFrame {
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 6", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6);
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setEditable(false);
         jScrollPane8.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll);
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost.setText("Nytt inlägg");
@@ -515,7 +524,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost)))
@@ -533,6 +542,7 @@ public class Main extends javax.swing.JFrame {
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Alla", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll);
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
@@ -588,6 +598,7 @@ public class Main extends javax.swing.JFrame {
         tpn_Main_MainMiddleWindow_Social_Pane1.setMinimumSize(new java.awt.Dimension(529, 100));
         tpn_Main_MainMiddleWindow_Social_Pane1.setPreferredSize(new java.awt.Dimension(529, 393));
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow7.setEditable(false);
         jScrollPane10.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow7);
 
         btn_Main_MainMiddleWindow_Research_MainPane_Social.setText("Nytt inlägg");
@@ -622,6 +633,7 @@ public class Main extends javax.swing.JFrame {
 
         tpn_Main_MainMiddleWindow_Social.addTab("Social", tpn_Main_MainMiddleWindow_Social_Pane1);
 
+        jTextArea3.setEditable(false);
         jTextArea3.setColumns(20);
         jTextArea3.setLineWrap(true);
         jTextArea3.setRows(5);
@@ -805,7 +817,8 @@ public class Main extends javax.swing.JFrame {
     
     
     
-    
+    //Checks what access the user has towards current login and locks down
+    //the parts which are access=false.
     private void lockPostRights()
     {
         boolean eduPoster = CurrentLogin.isUtbildning();

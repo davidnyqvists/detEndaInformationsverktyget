@@ -373,6 +373,22 @@ public class DBClass {
     }
     
     
+    /**
+     * Method for filling the text boxes with forum posts.
+     * @return 
+     */
+    private void fillForums()
+    {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     //METOD FÖR ATT HÄMTA ALLA ANSTÄLLDAS NAMN OCH PID 
     public ArrayList<HashMap<String, String>> hamtaAllNamnPid() {
         ArrayList<HashMap<String, String>> lista = new ArrayList<HashMap<String, String>>();
@@ -466,21 +482,6 @@ public class DBClass {
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
     
-    /*
-    public void createPost(String forum, String group, String postTitle,String postText)
-    {
-        try {
-        //Query for inserting the post into the main post table.
-        String sql = "INSERT INTO POST (POSTID, TITLE, TEXT) VALUES ("+ idb.getAutoIncrement("POST", "POSTID") +", "+postTitle+", "+postText+")";
-        idb.insert(sql);
-        
-        sql = "";
-
-        } catch (InfException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    */
     
     
 }

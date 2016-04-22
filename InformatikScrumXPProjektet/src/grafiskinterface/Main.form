@@ -349,6 +349,9 @@
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
                             <Component class="javax.swing.JTextPane" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow6">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -373,6 +376,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="jTextArea2">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="rows" type="int" value="5"/>
@@ -489,7 +493,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <EmptySpace min="0" pref="424" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="419" max="32767" attributes="0"/>
                                           <Component id="btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePost" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jScrollPane2" max="32767" attributes="0"/>
@@ -519,6 +523,9 @@
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
                             <Component class="javax.swing.JTextPane" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -548,7 +555,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="424" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="419" max="32767" attributes="0"/>
                                           <Component id="btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePost" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jScrollPane3" alignment="1" max="32767" attributes="0"/>
@@ -578,6 +585,9 @@
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
                             <Component class="javax.swing.JTextPane" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow1">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -607,7 +617,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="424" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="419" max="32767" attributes="0"/>
                                           <Component id="btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePost" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jScrollPane4" alignment="1" max="32767" attributes="0"/>
@@ -637,6 +647,9 @@
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
                             <Component class="javax.swing.JTextPane" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow2">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -666,7 +679,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="424" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="419" max="32767" attributes="0"/>
                                           <Component id="btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePost" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jScrollPane5" alignment="1" max="32767" attributes="0"/>
@@ -696,6 +709,9 @@
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
                             <Component class="javax.swing.JTextPane" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow3">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -725,7 +741,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="424" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="419" max="32767" attributes="0"/>
                                           <Component id="btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePost" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jScrollPane6" alignment="1" max="32767" attributes="0"/>
@@ -755,6 +771,9 @@
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
                             <Component class="javax.swing.JTextPane" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow4">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -784,7 +803,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="424" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="419" max="32767" attributes="0"/>
                                           <Component id="btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePost" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jScrollPane7" alignment="1" max="32767" attributes="0"/>
@@ -814,6 +833,9 @@
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
                             <Component class="javax.swing.JTextPane" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow5">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -842,7 +864,7 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane8" pref="509" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane8" pref="504" max="32767" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           <Component id="btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost" min="-2" max="-2" attributes="0"/>
@@ -873,6 +895,9 @@
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
                             <Component class="javax.swing.JTextPane" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -894,6 +919,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="jTextArea1">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="rows" type="int" value="5"/>
@@ -1038,6 +1064,9 @@
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
                             <Component class="javax.swing.JTextPane" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow7">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1062,6 +1091,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="jTextArea3">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="rows" type="int" value="5"/>
