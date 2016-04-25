@@ -342,8 +342,23 @@ public class SkapaMote extends javax.swing.JFrame {
         else{
             if(validate.kollaLangdNamn(getTitel) && validate.kollaLangdNamn(getBeskrivning))
             {
-        saveDateTimeArrayListToDatabase((DefaultListModel) jList_SkapaMote_Starttider.getModel());
-        getDateTimeIDsFromTimecodes(returnDateTimeArray((DefaultListModel) jList_SkapaMote_Starttider.getModel()));
+                //Saves the chosen dates into the database
+                saveDateTimeArrayListToDatabase((DefaultListModel) jList_SkapaMote_Starttider.getModel());
+                //Returns the chosen dates into a arraylist
+                ArrayList<String> timecodeArray = returnDateTimeArray((DefaultListModel) jList_SkapaMote_Starttider.getModel());
+                //Gets the chosen dateIDs into a arraylist
+                ArrayList<String> dateTimeIDArray = getDateTimeIDsFromTimecodes(timecodeArray);
+                //Inserts Title, description, ID to meeting. Saves the meetingID into a string
+                String meetingID = laggTillMote();
+                //inserts into meeting_time
+                ArrayList<String> meetingTimeIDs = insertMEETING_TIME(meetingID, dateTimeIDArray);
+                //Add current user to meeting table, as meeting booker
+                insertMeetingManager(meetingID);
+                //adds attendees to this meeting
+                addPeopleToAttendees(meetingID);
+        
+                JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte");
+                
             }    
             else {lbl_skapaMote_error.setVisible(true);}    
         }
@@ -353,18 +368,11 @@ public class SkapaMote extends javax.swing.JFrame {
         String dateTimeID = getIDwithOneSplit(sqlQuery);
         
     
-        //Inserts Title, description, ID to meeting. Saves the meetingID into a string
-        String meetingID = laggTillMote();
-        
-        //inserts into meeting_time
-        String meetingTimeID = insertMEETING_TIME(meetingID, dateTimeID);
         
         //Inserts the meetingTimeID into meeting (the one that just got created)
         addMeetingTimeToMeeting(meetingID, meetingTimeID);
         
-        addPeopleToAttendees(meetingID);
         
-        JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte");
         //Rensa all input i fälten.
         */
 
@@ -476,15 +484,32 @@ public class SkapaMote extends javax.swing.JFrame {
     /**
      * Inserts into MEETING_TIME table
      * @param meetingID
-     * @param dateTimeID
+     * @param dateTimeIDarray an arraylist with dateTimeIDs
      * @return Returns the meeting_timeID
      */
-    public String insertMEETING_TIME(String meetingID, String dateTimeID){
-        String sqlQuery = database.addMeetingTime(meetingID, dateTimeID);
-        //Get the id
-        String meeting_timeID = getIDwithOneSplit(sqlQuery);
-        return meeting_timeID;
+    public ArrayList<String> insertMEETING_TIME(String meetingID, ArrayList<String> dateTimeIDarray){
+        String sqlQuery = "";
+        ArrayList<String> meetingTimeIDarray = new ArrayList<String>();
+        for (String dateTimeID : dateTimeIDarray){
+            sqlQuery = database.addMeetingTime(meetingID, dateTimeID);
+            //Add the newly generated meeting_timeID to an arrayList
+            String meeting_timeID = getIDwithOneSplit(sqlQuery);
+            meetingTimeIDarray.add(meeting_timeID);
+        }
+        
+        return meetingTimeIDarray;
     }
+    
+        
+    /** 
+     * This method will insert the current logged-in user into the Meeting table
+     * in the database, to show that they are the person who booked the meeting
+     */
+    private void insertMeetingManager(String meetingID) {
+        int currentUserID = CurrentLogin.getId();
+        database.addCurrentUserToMeeting(currentUserID, meetingID);
+    }
+
     
     /**
      * Returns the id of a string.
@@ -717,4 +742,5 @@ public class SkapaMote extends javax.swing.JFrame {
     private javax.swing.JTextArea ta_SkapaMote_Beskrivning;
     private javax.swing.JTextPane tf_SkapaMote_deltagandePersoner;
     // End of variables declaration//GEN-END:variables
+
 }
