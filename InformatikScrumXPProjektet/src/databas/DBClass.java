@@ -321,6 +321,14 @@ public class DBClass {
         return namn;
     }
     
+    public void insertTimeChoice (String sql) {
+        try {
+            idb.insert(sql);
+        } catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     /**
      * Method for creating posts. Gets info through parameters and uses these
      * in sql queries.
