@@ -211,7 +211,6 @@ public class DBClass {
             for (String date : dates) {
                 String sql = "INSERT INTO DATE_TIME VALUES("
                     + idb.getAutoIncrement("DATE_TIME", "DATE_TIMEID") + ", '" + date + "')";
-                System.out.println("ELEPHANT - " + sql);
                 idb.insert(sql);
             status = "Success";
             }
@@ -315,8 +314,6 @@ public class DBClass {
 
         try {
             namn = idb.fetchSingle(sqlFraga);
-        
-            System.out.println("Lyckades att hämta namn");
         } catch (InfException e) {
             System.out.println(e.getMessage());
         }
