@@ -196,4 +196,18 @@ public class SkapaMoteTest {
         fail("The test case is a prototype.");
     }
     
+    @Test
+    public void testgetDateTimeIDsFromTimecodes() {
+        System.out.println("getDateTimeIDsFromTimecodes");
+        ArrayList<String> thetimes = new ArrayList<String>();
+        thetimes.add("15.04.2016, 12:30:00.000");
+        thetimes.add("11.03.2017, 13:00:00.000");
+        SkapaMote instance = new SkapaMote();
+        ArrayList<String> expResult = new ArrayList<String> ();
+        expResult.add("1");
+        expResult.add("2");
+        ArrayList<String> result = instance.getDateTimeIDsFromTimecodes(thetimes);
+        assertEquals(expResult, result);
+       
+    }
 }
