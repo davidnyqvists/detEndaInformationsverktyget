@@ -364,7 +364,7 @@ public class SkapaMote extends javax.swing.JFrame {
                 //which they will need to choose between
                 //addPeopleToTimeChoicesTable();
         
-                JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte");
+                JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte med titeln " + getTitel );
                 
             }
                 else {lbl_skapaMote_error.setVisible(true);}
