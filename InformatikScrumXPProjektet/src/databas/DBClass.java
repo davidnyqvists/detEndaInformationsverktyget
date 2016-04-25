@@ -187,6 +187,18 @@ public class DBClass {
         }
     }
     
+    public void addCurrentUserToMeeting(int userID, String meetingID){
+        
+        String sql = "UPDATE MEETING SET personID =" + userID + " where meetingID =" + meetingID;
+        
+        try {
+            idb.update(sql);
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     /**
      * inserts the date into date_time. Also returns the sql query.
      * @param date A string, and should be in the form: YYYY-MM-dd HH:mm:ss
@@ -199,7 +211,6 @@ public class DBClass {
             for (String date : dates) {
                 String sql = "INSERT INTO DATE_TIME VALUES("
                     + idb.getAutoIncrement("DATE_TIME", "DATE_TIMEID") + ", '" + date + "')";
-                System.out.println("ELEPHANT - " + sql);
                 idb.insert(sql);
             status = "Success";
             }
@@ -303,13 +314,19 @@ public class DBClass {
 
         try {
             namn = idb.fetchSingle(sqlFraga);
-        
-            System.out.println("Lyckades att hämta namn");
         } catch (InfException e) {
             System.out.println(e.getMessage());
         }
 
         return namn;
+    }
+    
+    public void insertTimeChoice (String sql) {
+        try {
+            idb.insert(sql);
+        } catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
     }
     
     /**
