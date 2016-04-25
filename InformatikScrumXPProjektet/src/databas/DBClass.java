@@ -393,53 +393,71 @@ public class DBClass {
      * Method for filling the text boxes with forum posts.
      * @return 
      */
-    private void fillForums()
+    private ArrayList<String> fillForums()//ADD PARAMETER FOR CHANGING WHAT FORUM TO POST IN.
     {
         
-        String sql = "SELECT POSTID FROM POST_FORSKNING";
-        String sqlResearch= "SELECT POSTID FROM POST";
+        String sqlResearch = "SELECT POSTID FROM POST_FORSKNING";
+        String sql= "SELECT POSTID FROM POST";
         
-        ArrayList<String> forumPostIDs = new ArrayList<>(); //Holds the research forum post IDs.
-        ArrayList<String> postIDs = new ArrayList<>(); //Holds the forum post ID.
+        ArrayList<String> postIDs = new ArrayList<>(); //Holds the research forum post IDs.
+        ArrayList<String> researchPostIDs = new ArrayList<>(); //Holds the forum post ID.
         ArrayList<String> printOutIDs = new ArrayList<>();
+        ArrayList<String> posts = new ArrayList<>();
         
         //Loops through all the IDs in both of the lists, compares them, and if they match, they 
         // get added to the printOutIDs, which will fetch the post data.
         try { 
-            forumPostIDs = idb.fetchColumn(sqlResearch);
             postIDs = idb.fetchColumn(sql);
+            researchPostIDs = idb.fetchColumn(sqlResearch);
             
-            for(int i = 0; i < forumPostIDs.size(); i++)
+            for(int i = 0; i < postIDs.size(); i++)
             {
-                String currentForumID = forumPostIDs.get(i); //holds the forum current ID in the list.
+                String currentPostID = postIDs.get(i); //holds the forum current ID in the list.
                 
-                for(int x = 0; x < postIDs.size(); x++)
+                for(int x = 0; x < researchPostIDs.size(); x++)
                 {
-                    String currentID = postIDs.get(x); //holds the current ID in the list.
+                    String currentResearchID = researchPostIDs.get(x); //holds the current ID in the list.
                     
-                    if (currentForumID.equals(currentID))
+                    if (currentPostID.equals(currentResearchID))
                     {
-                        printOutIDs.add(currentID); //adds a matching ID in to the printOutID list.
+                        printOutIDs.add(currentResearchID); //adds a matching ID in to the printOutID list.
                     }   
                 }    
             }
         
-            for (int i = 0; i < printOutIDs.size(); i++)
+            for (int i = printOutIDs.size(); i < printOutIDs.size(); i--) //Lägg till -1 på size() ifall out of bounds.
             {
                 String sqlTitle = "SELECT TITLE FROM POST WHERE POSTID = "+printOutIDs.get(i);
-                String sqlText ="SELECT TEXT FROM POST WHERE POST ID = "+printOutIDs.get(i);
-                sqlResearch = "SELECT RESEARCHGROUP FROM POST_FORSKNING WHERE POSTID = "+printOutIDs.get(i);
+                String sqlText = "SELECT TEXT FROM POST WHERE POSTID = "+printOutIDs.get(i);
+                String sqlName = "SELECT NAME\n" +
+                                 "FROM PERSON JOIN POST_FORSKNING on POST_FORSKNING.PERSONID = PERSON.PERSONID \n" +
+                                 "WHERE POST_FORSKNING.POSTID = " +printOutIDs.get(i)+ "";
+                sql = "SELECT RESEARCHGROUP FROM POST_FORSKNING WHERE POSTID = "+printOutIDs.get(i);
                 
                 String postTitle = idb.fetchSingle(sqlTitle);
                 String postText = idb.fetchSingle(sqlText);
-                String postResearch = idb.fetchSingle(sqlResearch);
+                String postResearch = idb.fetchSingle(sql);
+                String authorName = idb.fetchSingle(sqlName);
                 
-                //Orkar inte jobba mer idag.
+                //Orkar inte jobba mer idag. 22/04/2016
+                
+                //Puts together all the post info into one string.
+                String currentPostLayout = "================================================ \n"
+                        + "Titel: " + postTitle
+                        + "\n Forskningsgrupp: " +postResearch
+                        + "Författare: " +authorName+" Datum: ÅÅÅÅ-MM-DD"
+                        + "\n" + postText
+                        + "\n ================================================";
+ 
+                //Adds the string in to the post arrayList.
+                posts.add(currentPostLayout);  
             }
             
+            return posts;
             
         } catch (InfException e) {
             System.out.println(e.getMessage());
+            return posts;
         }
     }
     
