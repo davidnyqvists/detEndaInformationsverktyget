@@ -14,9 +14,7 @@ import databas.DBClass;
  */
 public class CurrentLoginHolder {
     
-   // private static CurrentLogin nuvarandeLogIn; "Behövs ej ddå den är statisk?"
-    private static String user;
-    private static String pass;
+
     private DBClass infDB;
     
     
@@ -25,19 +23,7 @@ public class CurrentLoginHolder {
                 infDB = new DBClass();
             }
     
-   
-/*
-    public void InitieraHoldern(CurrentLogin currentUser, String username, String password) {
-        //nuvarandeLogIn = currentUser; "Behövs ej då den är statisk?"
-        user = username;
-        pass = password;
-        currentUser.setEducationAdmin(true);
-        currentUser.setResearchAdmin(true);
-        currentUser.setSystemAmdmin(true);
-        currentUser.setUtbildning(true);
-        currentUser.setForskning(true);
-    }
-    */
+
     
     
     //Variables that will hold the true/false values before assigning them to
