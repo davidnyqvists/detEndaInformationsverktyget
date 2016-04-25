@@ -377,8 +377,15 @@ public class SkapaMote extends javax.swing.JFrame {
      * @param arrayList<String> dateTimeStrings
      * @return arrayList<String> dateTimeIDs
      */
-     private ArrayList<String> getDateTimeIDsFromTimecodes(ArrayList<String> dateTimeStrings) {
+     public ArrayList<String> getDateTimeIDsFromTimecodes(ArrayList<String> dateTimeStrings) {
         ArrayList<String> dateTimeIDs = new ArrayList<String>();
+  
+        for (String time : dateTimeStrings) {
+            String sql = "select DATE_TIMEID from DATE_TIME where" 
+            + " timecode = '" + time + "'";
+            String ID = database.getId(sql);
+            dateTimeIDs.add(ID);
+        }
          return dateTimeIDs;
     }
 
