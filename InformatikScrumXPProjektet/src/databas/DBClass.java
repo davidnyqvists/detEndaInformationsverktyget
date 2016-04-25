@@ -187,6 +187,18 @@ public class DBClass {
         }
     }
     
+    public void addCurrentUserToMeeting(int userID, String meetingID){
+        
+        String sql = "UPDATE MEETING SET personID =" + userID + " where meetingID =" + meetingID;
+        
+        try {
+            idb.update(sql);
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     /**
      * inserts the date into date_time. Also returns the sql query.
      * @param date A string, and should be in the form: YYYY-MM-dd HH:mm:ss
