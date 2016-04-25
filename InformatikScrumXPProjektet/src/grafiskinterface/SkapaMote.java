@@ -334,14 +334,18 @@ public class SkapaMote extends javax.swing.JFrame {
      * @param evt 
      */
     private void btn_SkapaMote_skapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SkapaMote_skapaActionPerformed
+        boolean test = false;
         String getTitel = Tf_Aktivitet.getText();
         String getBeskrivning = ta_SkapaMote_Beskrivning.getText();
+        Date getDatum = dp_SkapaMote_datePicker.getDate();
         lbl_skapaMote_error.setVisible(false);
         if(validate.kollaOmTomt(getTitel) || validate.kollaOmTomt(getBeskrivning))
         {lbl_skapaMote_error.setVisible(true);}
         else{
             if(validate.kollaLangdNamn(getTitel) && validate.kollaLangdNamn(getBeskrivning))
             {
+                if(getDatum != null)
+                {
                 //Saves the chosen dates into the database
                 saveDateTimeArrayListToDatabase((DefaultListModel) jList_SkapaMote_Starttider.getModel());
                 //Returns the chosen dates into a arraylist
@@ -362,9 +366,11 @@ public class SkapaMote extends javax.swing.JFrame {
                 //which they will need to choose between
                 addPeopleToTimeChoicesTable(peopleIDs, meetingTimeIDs);
         
-                JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte");
+                JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte med titeln " + getTitel );
                 
-            }    
+            }
+                else {lbl_skapaMote_error.setVisible(true);}
+            }
             else {lbl_skapaMote_error.setVisible(true);}    
         }
     //ArrayList<String> chosenTimeIDs = getAllDateTimeIDs (DefaultListModel) jList_SkapaMote_Starttider.getModel());
@@ -621,15 +627,18 @@ public class SkapaMote extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_skapaMote_stangActionPerformed
 
     private void btn_SkapaMote_LaggTillTidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SkapaMote_LaggTillTidActionPerformed
-       String choosenTime = getChoosenDate();
+       Date getDatum = dp_SkapaMote_datePicker.getDate();
+        if(getDatum != null)
+        {
+        String choosenTime = getChoosenDate();
        
        DefaultListModel<String> dlm = (DefaultListModel<String>) jList_SkapaMote_Starttider.getModel();
        
        
        dlm.addElement(choosenTime);
        jList_SkapaMote_Starttider.setModel(dlm);
-       
-       
+        }
+        else {JOptionPane.showMessageDialog(null, "Var vänlig ange ett datum");}
     }//GEN-LAST:event_btn_SkapaMote_LaggTillTidActionPerformed
 
     private void btn_SkapaMote_TaBortTidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SkapaMote_TaBortTidActionPerformed

@@ -6,6 +6,7 @@
 package grafiskinterface;
 
 import databas.DBClass;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,7 +15,7 @@ import databas.DBClass;
 public class CreateNewPostFrame extends javax.swing.JFrame {
 
     private DBClass infDB;
-    
+    private ValidateClassOne validate;
     
     static String windowParameter;
     static String forumParameter;
@@ -24,6 +25,7 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
      */
     public CreateNewPostFrame(String param, String forumParam) {
         initComponents();
+        validate = new ValidateClassOne();
         this.setLocationRelativeTo(null);
         windowParameter = param;
         forumParameter = forumParam;
@@ -122,6 +124,12 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
         String title = tf_CreateNewPostFrame_PostTitle.getText();
         String text = tf_CreateNewPostFrame_PostBody.getText();
         
+        if(validate.kollaOmTomt(title) || validate.kollaOmTomt(text))
+        {JOptionPane.showMessageDialog(null, "Var vänlig fyll i fälten");}
+        else {
+            
+            if(validate.kollaLangdNamn(title) && validate.kollaLangdNamn(text))
+            {
         if (forumParameter.equals("Research"))
         intForum = 0;
         
@@ -152,6 +160,9 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
         
         this.dispose();
         
+            }
+            else {JOptionPane.showMessageDialog(null, "Kontrollera textlängden");}
+        }
     }//GEN-LAST:event_btn_CreateNewPostFrame_PostActionPerformed
 
     private void btn_CreateNewPostFrame_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CreateNewPostFrame_BackActionPerformed
