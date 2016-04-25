@@ -356,6 +356,9 @@ public class SkapaMote extends javax.swing.JFrame {
                 insertMeetingManager(meetingID);
                 //adds attendees to this meeting
                 addPeopleToAttendees(meetingID);
+                //For each person attending a meeting, store their PersonID and each of the MeetingTime IDS
+                //which they will need to choose between
+                //addPeopleToTimeChoicesTable();
         
                 JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte");
                 
@@ -488,10 +491,10 @@ public class SkapaMote extends javax.swing.JFrame {
      * @return Returns the meeting_timeID
      */
     public ArrayList<String> insertMEETING_TIME(String meetingID, ArrayList<String> dateTimeIDarray){
-        String sqlQuery = "";
+       
         ArrayList<String> meetingTimeIDarray = new ArrayList<String>();
         for (String dateTimeID : dateTimeIDarray){
-            sqlQuery = database.addMeetingTime(meetingID, dateTimeID);
+            String sqlQuery = database.addMeetingTime(meetingID, dateTimeID);
             //Add the newly generated meeting_timeID to an arrayList
             String meeting_timeID = getIDwithOneSplit(sqlQuery);
             meetingTimeIDarray.add(meeting_timeID);
@@ -675,8 +678,18 @@ public class SkapaMote extends javax.swing.JFrame {
            cb_SkapaMote_sal.addItem(roomList.get(i).get("RNAME"));
         
         }
-    
+       
     }
+    /**
+     * This method will loop through every person who is attending a meeting.
+     * For each person, it will loop through each MeetingTime, and add the PersonID 
+     * and MeetingTimeID into the TimeChoices table in the database
+     */
+    private void addPeopleToTimeChoicesTable(ArrayList<String> people, ArrayList<String> meetingTimes) {
+        //for (person)
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -742,5 +755,7 @@ public class SkapaMote extends javax.swing.JFrame {
     private javax.swing.JTextArea ta_SkapaMote_Beskrivning;
     private javax.swing.JTextPane tf_SkapaMote_deltagandePersoner;
     // End of variables declaration//GEN-END:variables
+
+    
 
 }

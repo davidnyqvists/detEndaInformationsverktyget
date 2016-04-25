@@ -92,10 +92,11 @@ public class SkapaMoteTest {
     public void testInsertMEETING_TIME() {
         System.out.println("insertMEETING_TIME");
         String meetingID = "";
-        String dateTimeID = "";
+        ArrayList<String> dateTimeID = new ArrayList<String>();
+        dateTimeID.add("1");
         SkapaMote instance = new SkapaMote();
         String expResult = "";
-        String result = instance.insertMEETING_TIME(meetingID, dateTimeID);
+        ArrayList<String> result = instance.insertMEETING_TIME(meetingID, dateTimeID);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
