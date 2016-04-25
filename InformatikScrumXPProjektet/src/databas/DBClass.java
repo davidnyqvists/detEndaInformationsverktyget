@@ -384,16 +384,23 @@ public class DBClass {
      * Method for filling the text boxes with forum posts.
      * @return 
      */
-    private ArrayList<String> fillForums()//ADD PARAMETER FOR CHANGING WHAT FORUM TO POST IN.
+    public String fillForums(String groupButton)//ADD PARAMETER FOR CHANGING WHAT FORUM TO POST IN.
     {
         
         String sqlResearch = "SELECT POSTID FROM POST_FORSKNING";
         String sql= "SELECT POSTID FROM POST";
+        String allPosts = "";
+        String rGroup1Posts = "";
+        String rGroup2Posts = "";
+        String rGroup3Posts = "";
+        String rGroup4Posts = "";
+        String rGroup5Posts = "";
+        String rGroup6Posts = "";
+        
         
         ArrayList<String> postIDs = new ArrayList<>(); //Holds the research forum post IDs.
         ArrayList<String> researchPostIDs = new ArrayList<>(); //Holds the forum post ID.
         ArrayList<String> printOutIDs = new ArrayList<>();
-        ArrayList<String> posts = new ArrayList<>();
         
         //Loops through all the IDs in both of the lists, compares them, and if they match, they 
         // get added to the printOutIDs, which will fetch the post data.
@@ -416,14 +423,15 @@ public class DBClass {
                 }    
             }
         
-            for (int i = printOutIDs.size(); i < printOutIDs.size(); i--) //Lägg till -1 på size() ifall out of bounds.
+            int printLength = printOutIDs.size();
+            for (int i = printLength; i != 0; i--) //Lägg till -1 på size() ifall out of bounds.
             {
-                String sqlTitle = "SELECT TITLE FROM POST WHERE POSTID = "+printOutIDs.get(i);
-                String sqlText = "SELECT TEXT FROM POST WHERE POSTID = "+printOutIDs.get(i);
+                String sqlTitle = "SELECT TITLE FROM POST WHERE POSTID = "+printOutIDs.get(i-1);
+                String sqlText = "SELECT TEXT FROM POST WHERE POSTID = "+printOutIDs.get(i-1);
                 String sqlName = "SELECT NAME\n" +
                                  "FROM PERSON JOIN POST_FORSKNING on POST_FORSKNING.PERSONID = PERSON.PERSONID \n" +
-                                 "WHERE POST_FORSKNING.POSTID = " +printOutIDs.get(i)+ "";
-                sql = "SELECT RESEARCHGROUP FROM POST_FORSKNING WHERE POSTID = "+printOutIDs.get(i);
+                                 "WHERE POST_FORSKNING.POSTID = " +printOutIDs.get(i-1)+ "";
+                sql = "SELECT RESEARCHGROUP FROM POST_FORSKNING WHERE POSTID = "+printOutIDs.get(i-1);
                 
                 String postTitle = idb.fetchSingle(sqlTitle);
                 String postText = idb.fetchSingle(sqlText);
@@ -433,22 +441,65 @@ public class DBClass {
                 //Orkar inte jobba mer idag. 22/04/2016
                 
                 //Puts together all the post info into one string.
-                String currentPostLayout = "================================================ \n"
+                String currentPostLayout = "==================================================================== \n\n"
                         + "Titel: " + postTitle
-                        + "\n Forskningsgrupp: " +postResearch
-                        + "Författare: " +authorName+" Datum: ÅÅÅÅ-MM-DD"
-                        + "\n" + postText
-                        + "\n ================================================";
+                        + "\n \n Forskningsgrupp: " +postResearch
+                        + ". \n Författare: " +authorName+". \n Datum: ÅÅÅÅ-MM-DD."
+                        + "\n\n" + postText +"\n\n";
  
-                //Adds the string in to the post arrayList.
-                posts.add(currentPostLayout);  
+                //Fills the variables for each different resarch group.
+                if (postResearch.equals("rGroup1")) {
+                    String allPostHolder = rGroup1Posts;
+                    rGroup1Posts = currentPostLayout + allPostHolder;
+                }
+                if (postResearch.equals("rGroup2")) {
+                    String allPostHolder = rGroup2Posts;
+                    rGroup2Posts = currentPostLayout + allPostHolder;
+                }
+                if (postResearch.equals("rGroup3")) {
+                    String allPostHolder = rGroup3Posts;
+                    rGroup3Posts = currentPostLayout + allPostHolder;
+                }
+                if (postResearch.equals("rGroup4")) {
+                    String allPostHolder = rGroup4Posts;
+                    rGroup4Posts = currentPostLayout + allPostHolder;
+                }
+                if (postResearch.equals("rGroup5")) {
+                    String allPostHolder = rGroup5Posts;
+                    rGroup5Posts = currentPostLayout + allPostHolder;
+                }
+                if (postResearch.equals("rGroup6")) {
+                    String allPostHolder = rGroup6Posts;
+                    rGroup6Posts = currentPostLayout + allPostHolder;
+                }
+
+                    
+                //Adds the string in to the post string.
+                String allPostHolder = allPosts;
+                allPosts = currentPostLayout + allPostHolder;
             }
             
-            return posts;
+            //Decides which post strings are going to be returned.
+            if (groupButton.equals("group1")) {
+                return rGroup1Posts;
+            } else if (groupButton.equals("group2")) {
+                return rGroup2Posts;
+            } else if (groupButton.equals("group3")) {
+                return rGroup3Posts;
+            } else if (groupButton.equals("group4")) {
+                return rGroup4Posts;
+            } else if (groupButton.equals("group5")) {
+                return rGroup5Posts;
+            } else if (groupButton.equals("group6")) {
+                return rGroup6Posts;
+            } else {
+                return allPosts;
+            }
+            
             
         } catch (InfException e) {
             System.out.println(e.getMessage());
-            return posts;
+            return "";
         }
     }
     
