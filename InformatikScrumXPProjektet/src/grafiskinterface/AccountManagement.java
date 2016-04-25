@@ -853,7 +853,7 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
             }
             else {lbl_AccountManagement_Error.setVisible(true);}
             }
-        JOptionPane.showMessageDialog(null, "Användaren " + GUIName + " är nu skapad");
+       if(test == true){JOptionPane.showMessageDialog(null, "Användaren " + GUIName + " är nu skapad");}
     }//GEN-LAST:event_btn_AccountManagement_LaggTillKonto_saveActionPerformed
 
     private void btn_AccountManagement_MainPanel_DictionaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountManagement_MainPanel_DictionaryActionPerformed
