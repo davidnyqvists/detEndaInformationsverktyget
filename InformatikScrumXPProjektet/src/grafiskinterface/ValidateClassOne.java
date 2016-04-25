@@ -26,7 +26,7 @@ public class ValidateClassOne {
      //Metod 5 som kollar om längden är mindre än 30 tecken
     public static boolean kollaLangdNamn(String inText) {
         boolean test = false;
-        if (inText.length() < 30) {
+        if (inText.length() < 1000) {
             test = true;
         } else {
             test = false;
