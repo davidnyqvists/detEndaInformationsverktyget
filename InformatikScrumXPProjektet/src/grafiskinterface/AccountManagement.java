@@ -214,6 +214,7 @@ dataBase.getId(sqlDelete15);
 String sqlDelete16 = "DELETE FROM PERSON WHERE PERSONID = '" + pid + "'";
         System.out.println(sqlDelete16);
 dataBase.getId(sqlDelete16);
+    JOptionPane.showMessageDialog(null, valtNamn + " är nu raderad från databasen");
     }
     
     
@@ -224,7 +225,8 @@ dataBase.getId(sqlDelete16);
     
 
    public void updateInfo() {
-        lbl_AccountManagement_ErrorAndra.setVisible(false); 
+       boolean test = false; 
+       lbl_AccountManagement_ErrorAndra.setVisible(false); 
         String valtNamn = cb_AccountManagement_MainPanel_AndraKonto_AccountChooser.getSelectedItem().toString();
         String GUIName = TF_Namn.getText();
         String GUIUsername = TF_AnvNamn.getText();
@@ -240,6 +242,7 @@ dataBase.getId(sqlDelete16);
         else {
             if(ValidateClassOne.kollaLangdNamn(GUIName) && ValidateClassOne.kollaLangdNamn(GUIUsername) && ValidateClassOne.kollaLangdNamn(GUIPassword) && ValidateClassOne.kollaLangdNamn(GUIConfirmPassword))
             {
+                test = true;
         String sqlGuiUserName = "UPDATE PERSON SET PERSON.USERNAME = '" + GUIUsername + "' WHERE PERSON.NAME = '" + valtNamn + "' ";
         dataBase.getId(sqlGuiUserName);
 
@@ -296,7 +299,8 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
             }
             else{lbl_AccountManagement_ErrorAndra.setVisible(true);}
         }
-        }
+   if(test == true){ JOptionPane.showMessageDialog(null, "Informationen har uppdaterats");}
+   }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -797,6 +801,7 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
         String GUIUsername = tf_AccountManagement_LaggTillKonto_Username.getText();
         String GUIPassword = String.valueOf(tf_AccountManagement_LaggTillKonto_Password.getPassword());
         String GUIConfirmPassword = String.valueOf(tf_Accountmanagement_LaggTillKonto_ChangePassword.getPassword());
+        boolean test = false; 
         if(ValidateClassOne.kollaOmTomt(GUIName) || ValidateClassOne.kollaOmTomt(GUIUsername) || ValidateClassOne.kollaOmTomt(GUIPassword) || ValidateClassOne.kollaOmTomt(GUIConfirmPassword))
         {lbl_AccountManagement_Error.setVisible(true);}
         else {
@@ -811,6 +816,7 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
                 if (!doesPersonExistInDatabase(GUIUsername)) {
                     System.out.println("person doesn't exist");
                     sqlMethods.insert(sqlInsert);
+                    test = true;
                 } else {
                     JOptionPane.showMessageDialog(null, "The username already exist");
                 }
@@ -847,6 +853,7 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
             }
             else {lbl_AccountManagement_Error.setVisible(true);}
             }
+        JOptionPane.showMessageDialog(null, "Användaren " + GUIName + " är nu skapad");
     }//GEN-LAST:event_btn_AccountManagement_LaggTillKonto_saveActionPerformed
 
     private void btn_AccountManagement_MainPanel_DictionaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountManagement_MainPanel_DictionaryActionPerformed
