@@ -355,10 +355,12 @@ public class SkapaMote extends javax.swing.JFrame {
                 //Add current user to meeting table, as meeting booker
                 insertMeetingManager(meetingID);
                 //adds attendees to this meeting
-                addPeopleToAttendees(meetingID);
-                //For each person attending a meeting, store their PersonID and each of the MeetingTime IDS
+                String[] peopleNames = addPeopleToAttendees(meetingID);
+                
+                ArrayList<String> peopleIDs = getPeopleIDs(peopleNames);
+                 //For each person attending a meeting, store their PersonID and each of the MeetingTime IDS
                 //which they will need to choose between
-                //addPeopleToTimeChoicesTable();
+                addPeopleToTimeChoicesTable(peopleIDs, meetingTimeIDs);
         
                 JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte");
                 
@@ -569,18 +571,13 @@ public class SkapaMote extends javax.swing.JFrame {
       * Inserts the selected people into the table ATTENDEES.
       * @param meetingID 
       */
-     private void addPeopleToAttendees(String meetingID){
+     private String[] addPeopleToAttendees(String meetingID){
          //Adds people to an array
         String allaPersoner = tf_SkapaMote_deltagandePersoner.getText();
         String[] arraySplit = allaPersoner.split("\\n");
         //Get the PERSONID from the database
         database.addPersonToAttendees(meetingID, arraySplit);
-        
-        
-        
-        
-        
-         
+        return arraySplit;
      }
      
         //Adds people to the text box.
@@ -680,13 +677,30 @@ public class SkapaMote extends javax.swing.JFrame {
         }
        
     }
+    
+    private ArrayList<String> getPeopleIDs(String[] peopleNames) {
+        ArrayList<String> personIDs = new ArrayList<String>();
+        for (String person: peopleNames) {
+            String ID = database.hamtaAnstalldPid(person);
+            personIDs.add(ID);
+        }
+        return personIDs;
+    }
+    
     /**
      * This method will loop through every person who is attending a meeting.
      * For each person, it will loop through each MeetingTime, and add the PersonID 
      * and MeetingTimeID into the TimeChoices table in the database
      */
     private void addPeopleToTimeChoicesTable(ArrayList<String> people, ArrayList<String> meetingTimes) {
-        //for (person)
+        
+        for (String personID: people) {
+            for (String meetingID : meetingTimes) {
+                String sql = "Insert into TIME_CHOICES (PERSONID, MEETING_TIMEID) "
+                        + "values (" + personID + ", " + meetingID + ")";
+                database.insertTimeChoice(sql);
+            }
+        }
         
     }
     
@@ -755,6 +769,8 @@ public class SkapaMote extends javax.swing.JFrame {
     private javax.swing.JTextArea ta_SkapaMote_Beskrivning;
     private javax.swing.JTextPane tf_SkapaMote_deltagandePersoner;
     // End of variables declaration//GEN-END:variables
+
+    
 
     
 
