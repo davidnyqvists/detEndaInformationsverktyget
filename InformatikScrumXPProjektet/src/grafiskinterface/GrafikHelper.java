@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 public class GrafikHelper {
     
     private static JFrame nuvarande;
+    private static Main nuvarandeMain;
     
     
     public static void GrafikHelper() {
@@ -18,8 +19,8 @@ public class GrafikHelper {
 }
     public static void InitieraMain() {
         
-        nuvarande = new Main();
-        nuvarande.setVisible(true);  
+        nuvarandeMain = new Main();
+        nuvarandeMain.setVisible(true);  
     }
     
     public static void InitieraLogIn() {
@@ -51,12 +52,20 @@ public class GrafikHelper {
         nuvarande.dispose();
     }
     
+    public static void DisposeMain()
+    {
+        nuvarandeMain.dispose();
+    }
+    
     public static void InitieraCreateNewPost(String param, String forum) {
         new CreateNewPostFrame(param, forum).setVisible(true);
     }
     
     
-    
+    public static void fillMainPost()
+    {
+        nuvarandeMain.fillForumWithPost();
+    }
    
     
     

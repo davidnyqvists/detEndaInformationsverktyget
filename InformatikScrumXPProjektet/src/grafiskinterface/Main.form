@@ -604,7 +604,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTextArea" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8">
+                            <Component class="javax.swing.JTextArea" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow">
                               <Properties>
                                 <Property name="editable" type="boolean" value="false"/>
                                 <Property name="columns" type="int" value="20"/>
@@ -672,7 +672,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTextArea" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9">
+                            <Component class="javax.swing.JTextArea" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow">
                               <Properties>
                                 <Property name="editable" type="boolean" value="false"/>
                                 <Property name="columns" type="int" value="20"/>
@@ -740,7 +740,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTextArea" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10">
+                            <Component class="javax.swing.JTextArea" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow">
                               <Properties>
                                 <Property name="editable" type="boolean" value="false"/>
                                 <Property name="columns" type="int" value="20"/>
@@ -808,7 +808,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTextArea" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11">
+                            <Component class="javax.swing.JTextArea" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow">
                               <Properties>
                                 <Property name="editable" type="boolean" value="false"/>
                                 <Property name="columns" type="int" value="20"/>
@@ -876,7 +876,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTextArea" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12">
+                            <Component class="javax.swing.JTextArea" name="tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow">
                               <Properties>
                                 <Property name="editable" type="boolean" value="false"/>
                                 <Property name="columns" type="int" value="20"/>
