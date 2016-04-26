@@ -582,7 +582,6 @@ public class DBClass {
             
             intPersonID = Integer.parseInt(strPersonID);
 
-            System.out.println("Lyckades att hämta ID");
         } catch (InfException e) {
             System.out.println(e.getMessage());
         }

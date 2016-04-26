@@ -44,6 +44,8 @@ public class AccountManagement extends javax.swing.JFrame {
     public void laggTillNamn() {
         String sql = "Select NAME FROM PERSON";
         ArrayList<HashMap<String, String>> projektLista = dataBase.hamtaAlla(sql);
+        
+        cb_AccountManagement_MainPanel_AndraKonto_AccountChooser.removeAllItems();
         for (int i = 0; i < projektLista.size(); i++) {
             cb_AccountManagement_MainPanel_AndraKonto_AccountChooser.addItem(projektLista.get(i).get("NAME"));
 
@@ -54,6 +56,8 @@ public class AccountManagement extends javax.swing.JFrame {
      public void laggTillNamn2() {
         String sql = "Select NAME FROM PERSON";
         ArrayList<HashMap<String, String>> projektLista = dataBase.hamtaAlla(sql);
+        
+        cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1.removeAllItems();
         for (int i = 0; i < projektLista.size(); i++) {
             cb_AccountManagement_MainPanel_TaBortKonto_AccountChooser1.addItem(projektLista.get(i).get("NAME"));
 
@@ -785,16 +789,22 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
     private void btn_AccountManagement_MainPanel_LaggTillKontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountManagement_MainPanel_LaggTillKontoActionPerformed
         CardLayout card = (CardLayout) CardPanelHolder.getLayout();
         card.show(CardPanelHolder, "card1");
+        laggTillNamn();
+        laggTillNamn2();
     }//GEN-LAST:event_btn_AccountManagement_MainPanel_LaggTillKontoActionPerformed
 
     private void btn_AccountManagement_MainPanel_AndraKontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountManagement_MainPanel_AndraKontoActionPerformed
         CardLayout card = (CardLayout) CardPanelHolder.getLayout();
         card.show(CardPanelHolder, "card2");
+        laggTillNamn();
+        laggTillNamn2();
     }//GEN-LAST:event_btn_AccountManagement_MainPanel_AndraKontoActionPerformed
 
     private void btn_AccountManagement_MainPanel_TaBortKontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountManagement_MainPanel_TaBortKontoActionPerformed
         CardLayout card = (CardLayout) CardPanelHolder.getLayout();
         card.show(CardPanelHolder, "card3");
+        laggTillNamn();
+        laggTillNamn2();
     }//GEN-LAST:event_btn_AccountManagement_MainPanel_TaBortKontoActionPerformed
 
     private void btn_AccountManagement_LaggTillKonto_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountManagement_LaggTillKonto_saveActionPerformed
@@ -885,6 +895,8 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
 
     private void sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sActionPerformed
         taBortAnstalld();
+        laggTillNamn();
+        laggTillNamn2();
     }//GEN-LAST:event_sActionPerformed
 
     private void TF_LosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LosenActionPerformed
