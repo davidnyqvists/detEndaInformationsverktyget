@@ -246,23 +246,25 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Component id="lbl_AccountManagement_Error" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="tf_Accountmanagement_LaggTillKonto_ChangePassword" max="32767" attributes="0"/>
-                                      <Component id="tf_AccountManagement_LaggTillKonto_Password" alignment="0" max="32767" attributes="0"/>
                                       <Component id="tf_AccountManagement_LaggTillKonto_Username" alignment="0" max="32767" attributes="0"/>
                                       <Component id="lbl_AccountManagement_LaggTillKonto_username" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lbl_AccountManagement_LaggTillKonto_Password" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lbl_AccountManagement_LaggTillKonto_RepeatPassword" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lbl_AccountManagement_LaggTillKonto_name" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="tf_AccountManagement_LaggTillKonto_Name" alignment="0" min="-2" pref="472" max="-2" attributes="0"/>
+                                      <Component id="tf_AccountManagement_LaggTillKonto_Name" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
@@ -282,11 +284,9 @@
                                               <Component id="btn_AccountManagement_LaggTillKonto_save" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <Component id="tf_AccountManagement_LaggTillKonto_Password" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="tf_Accountmanagement_LaggTillKonto_ChangePassword" alignment="0" min="-2" pref="472" max="-2" attributes="0"/>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
-                                  <Component id="lbl_AccountManagement_Error" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="70" max="32767" attributes="0"/>
@@ -312,9 +312,9 @@
                           <Component id="tf_AccountManagement_LaggTillKonto_Password" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lbl_AccountManagement_LaggTillKonto_RepeatPassword" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="tf_Accountmanagement_LaggTillKonto_ChangePassword" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="chk_AccountManagement_LaggTillKonto_ResearchAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -330,7 +330,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="lbl_AccountManagement_Error" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="66" max="32767" attributes="0"/>
+                          <EmptySpace pref="67" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -368,19 +368,9 @@
                     <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JPasswordField" name="tf_AccountManagement_LaggTillKonto_Password">
-                  <Properties>
-                    <Property name="name" type="java.lang.String" value="" noResource="true"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_RepeatPassword">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Upprepa l&#xf6;senord"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JPasswordField" name="tf_Accountmanagement_LaggTillKonto_ChangePassword">
-                  <Properties>
-                    <Property name="name" type="java.lang.String" value="" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_Research">
@@ -426,6 +416,13 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Var v&#xe4;nlig kontrollera att f&#xe4;lten &#xe4;r korrekt ifyllda"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tf_AccountManagement_LaggTillKonto_Password">
+                </Component>
+                <Component class="javax.swing.JTextField" name="tf_Accountmanagement_LaggTillKonto_ChangePassword">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tf_Accountmanagement_LaggTillKonto_ChangePasswordActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
