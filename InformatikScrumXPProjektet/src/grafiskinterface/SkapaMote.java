@@ -363,7 +363,15 @@ public class SkapaMote extends javax.swing.JFrame {
                 //which they will need to choose between
                 addPeopleToTimeChoicesTable(peopleIDs, meetingTimeIDs);
         
-                JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte med titeln " + getTitel );
+                //Adds meetingID to meeting
+                String firstMeeting = meetingTimeIDs.get(0);
+                System.out.println("meeting Id är " + meetingID);
+                String sqlMeetingTime = "UPDATE MEETING \n"
+                        + " SET MEETING_TIMEID = '" + firstMeeting + "' \n"
+                        + " WHERE MEETINGID = '" + meetingID + "' ";
+                database.getId(sqlMeetingTime);
+               
+                        JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte med titeln " + getTitel );
                 
             }
                 else {lbl_skapaMote_error.setVisible(true);}
