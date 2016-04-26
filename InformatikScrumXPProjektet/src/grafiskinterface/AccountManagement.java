@@ -325,9 +325,7 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
         lbl_AccountManagement_LaggTillKonto_username = new javax.swing.JLabel();
         tf_AccountManagement_LaggTillKonto_Username = new javax.swing.JTextField();
         lbl_AccountManagement_LaggTillKonto_Password = new javax.swing.JLabel();
-        tf_AccountManagement_LaggTillKonto_Password = new javax.swing.JPasswordField();
         lbl_AccountManagement_LaggTillKonto_RepeatPassword = new javax.swing.JLabel();
-        tf_Accountmanagement_LaggTillKonto_ChangePassword = new javax.swing.JPasswordField();
         chk_AccountManagement_LaggTillKonto_Research = new javax.swing.JCheckBox();
         chk_AccountManagement_LaggTillKonto_Education = new javax.swing.JCheckBox();
         btn_AccountManagement_LaggTillKonto_save = new javax.swing.JButton();
@@ -335,6 +333,8 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
         chk_AccountManagement_LaggTillKonto_EducationAdmin = new javax.swing.JCheckBox();
         chk_AccountManagement_LaggTillKonto_SystemAdmin = new javax.swing.JCheckBox();
         lbl_AccountManagement_Error = new javax.swing.JLabel();
+        tf_AccountManagement_LaggTillKonto_Password = new javax.swing.JTextField();
+        tf_Accountmanagement_LaggTillKonto_ChangePassword = new javax.swing.JTextField();
         AndraKonto = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -458,11 +458,7 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
 
         lbl_AccountManagement_LaggTillKonto_Password.setText("Lösenord");
 
-        tf_AccountManagement_LaggTillKonto_Password.setName(""); // NOI18N
-
         lbl_AccountManagement_LaggTillKonto_RepeatPassword.setText("Upprepa lösenord");
-
-        tf_Accountmanagement_LaggTillKonto_ChangePassword.setName(""); // NOI18N
 
         chk_AccountManagement_LaggTillKonto_Research.setText("Forskning");
         chk_AccountManagement_LaggTillKonto_Research.addActionListener(new java.awt.event.ActionListener() {
@@ -489,6 +485,12 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
         lbl_AccountManagement_Error.setForeground(new java.awt.Color(255, 51, 51));
         lbl_AccountManagement_Error.setText("Var vänlig kontrollera att fälten är korrekt ifyllda");
 
+        tf_Accountmanagement_LaggTillKonto_ChangePassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_Accountmanagement_LaggTillKonto_ChangePasswordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout LaggTillKontoLayout = new javax.swing.GroupLayout(LaggTillKonto);
         LaggTillKonto.setLayout(LaggTillKontoLayout);
         LaggTillKontoLayout.setHorizontalGroup(
@@ -499,16 +501,17 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
                         .addContainerGap()
                         .addComponent(jLabel17))
                     .addGroup(LaggTillKontoLayout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(lbl_AccountManagement_Error))
+                    .addGroup(LaggTillKontoLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tf_Accountmanagement_LaggTillKonto_ChangePassword)
-                            .addComponent(tf_AccountManagement_LaggTillKonto_Password)
                             .addComponent(tf_AccountManagement_LaggTillKonto_Username)
                             .addComponent(lbl_AccountManagement_LaggTillKonto_username)
                             .addComponent(lbl_AccountManagement_LaggTillKonto_Password)
                             .addComponent(lbl_AccountManagement_LaggTillKonto_RepeatPassword)
                             .addComponent(lbl_AccountManagement_LaggTillKonto_name)
-                            .addComponent(tf_AccountManagement_LaggTillKonto_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_AccountManagement_LaggTillKonto_Name)
                             .addGroup(LaggTillKontoLayout.createSequentialGroup()
                                 .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(LaggTillKontoLayout.createSequentialGroup()
@@ -522,10 +525,9 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
                                 .addGap(105, 105, 105)
                                 .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(chk_AccountManagement_LaggTillKonto_SystemAdmin)
-                                    .addComponent(btn_AccountManagement_LaggTillKonto_save)))))
-                    .addGroup(LaggTillKontoLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(lbl_AccountManagement_Error)))
+                                    .addComponent(btn_AccountManagement_LaggTillKonto_save)))
+                            .addComponent(tf_AccountManagement_LaggTillKonto_Password, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tf_Accountmanagement_LaggTillKonto_ChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         LaggTillKontoLayout.setVerticalGroup(
@@ -547,9 +549,9 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
                 .addComponent(tf_AccountManagement_LaggTillKonto_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_AccountManagement_LaggTillKonto_RepeatPassword)
-                .addGap(1, 1, 1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tf_Accountmanagement_LaggTillKonto_ChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(chk_AccountManagement_LaggTillKonto_ResearchAdmin)
@@ -562,7 +564,7 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
                     .addComponent(btn_AccountManagement_LaggTillKonto_save))
                 .addGap(34, 34, 34)
                 .addComponent(lbl_AccountManagement_Error)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         CardPanelHolder.add(LaggTillKonto, "card1");
@@ -799,8 +801,8 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
         lbl_AccountManagement_Error.setVisible(false);
         String GUIName = tf_AccountManagement_LaggTillKonto_Name.getText();
         String GUIUsername = tf_AccountManagement_LaggTillKonto_Username.getText();
-        String GUIPassword = String.valueOf(tf_AccountManagement_LaggTillKonto_Password.getPassword());
-        String GUIConfirmPassword = String.valueOf(tf_Accountmanagement_LaggTillKonto_ChangePassword.getPassword());
+        String GUIPassword = tf_AccountManagement_LaggTillKonto_Password.getText();
+        String GUIConfirmPassword = tf_Accountmanagement_LaggTillKonto_ChangePassword.getText();
         boolean test = false; 
         if(ValidateClassOne.kollaOmTomt(GUIName) || ValidateClassOne.kollaOmTomt(GUIUsername) || ValidateClassOne.kollaOmTomt(GUIPassword) || ValidateClassOne.kollaOmTomt(GUIConfirmPassword))
         {lbl_AccountManagement_Error.setVisible(true);}
@@ -888,6 +890,10 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
     private void TF_LosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LosenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_LosenActionPerformed
+
+    private void tf_Accountmanagement_LaggTillKonto_ChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_Accountmanagement_LaggTillKonto_ChangePasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_Accountmanagement_LaggTillKonto_ChangePasswordActionPerformed
 
     public boolean doesPersonExistInDatabase(String username) {
         String sql = "select username from person";
@@ -990,8 +996,8 @@ System.out.println("SQL GET " + sqlGuiUserName + sqlGuiUserPassword + sqlGuiName
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_username;
     private javax.swing.JButton s;
     private javax.swing.JTextField tf_AccountManagement_LaggTillKonto_Name;
-    private javax.swing.JPasswordField tf_AccountManagement_LaggTillKonto_Password;
+    private javax.swing.JTextField tf_AccountManagement_LaggTillKonto_Password;
     private javax.swing.JTextField tf_AccountManagement_LaggTillKonto_Username;
-    private javax.swing.JPasswordField tf_Accountmanagement_LaggTillKonto_ChangePassword;
+    private javax.swing.JTextField tf_Accountmanagement_LaggTillKonto_ChangePassword;
     // End of variables declaration//GEN-END:variables
 }
