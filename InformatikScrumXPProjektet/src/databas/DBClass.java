@@ -657,10 +657,15 @@ public class DBClass {
      public boolean isPersonInTimeChoicesTable(String sql) {
          boolean personExists = false;   
          try {
-              idb.fetchColumn(sql);
-              personExists = true;
+              
+             //ArrayList<String> personInTimeChoicesTable = new ArrayList<String>;
+             if (!idb.fetchColumn(sql).isEmpty()) {
+                 personExists = true;
+             }
+            
         } catch (InfException e) {
-            System.out.println(e.getMessage());           
+            System.out.println(e.getMessage()); 
+           
         }   
          return personExists;
      }
