@@ -40,8 +40,8 @@ public class Main extends javax.swing.JFrame {
         //showMessageNeedToChooseTimes(needToChooseTimes2);
         
         
-        int thisID = CurrentLogin.getId();
-        boolean needToChooseTimes1 = isUserInTimeChoicesTable(thisID);
+        //int thisID = CurrentLogin.getId();
+        //boolean needToChooseTimes1 = isUserInTimeChoicesTable(thisID);
         //boolean needToChooseTimes2 = doesUserHaveNullYesNoInTimeChoices(needToChooseTimes1);
         //showMessageNeedToChooseTimes(needToChooseTimes2);
         
