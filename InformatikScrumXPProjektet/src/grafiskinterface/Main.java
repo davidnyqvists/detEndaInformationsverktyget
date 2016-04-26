@@ -33,7 +33,14 @@ public class Main extends javax.swing.JFrame {
 
         //Locks the forums which the user doesn't have post rights in.
         lockPostRights();
-
+        
+        int thisID = CurrentLogin.getId();
+        boolean needToChooseTimes1 = isUserInTimeChoicesTable(thisID);
+        //boolean needToChooseTimes2 = doesUserHaveNullYesNoInTimeChoices(needToChooseTimes1);
+        //showMessageNeedToChooseTimes(needToChooseTimes2);
+        
+        
+        
     }
 
     /**
@@ -925,7 +932,28 @@ public class Main extends javax.swing.JFrame {
             btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost.setEnabled(false);
         }
     }
-
+    
+    
+    /**
+     * This method takes in the PersonID of the logged-in user.
+     * It will check in the TimeChoices table to see if this user is there.
+     * It will return a boolean 'true' / 'false' answer.
+     * @param thisID
+     * @return 
+     */
+   public boolean isUserInTimeChoicesTable(int thisID) {
+       boolean personExistsInTable = false;
+       String sql = "select * from TIME_CHOICES where PERSONID = " + thisID;
+       personExistsInTable = infDB.isPersonInTimeChoicesTable(sql);
+       return personExistsInTable;
+     }
+    
+    
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -1028,4 +1056,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tpn_Main_MainMiddleWindow_Social;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Social_Pane1;
     // End of variables declaration//GEN-END:variables
+
+    
 }

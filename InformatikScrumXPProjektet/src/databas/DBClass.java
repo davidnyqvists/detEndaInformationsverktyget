@@ -617,7 +617,53 @@ public class DBClass {
         } else {
             return true;
         } 
+        
+        
     }
+    
+    public void insertExampleDataJonasInTimeChoices() {
+        String SQL1 = "insert into TIME_CHOICES\n" +
+                      "values (1, 1, null)";
+        String SQL2 = "insert into TIME_CHOICES\n" +
+                      "values (1, 2, null)";
+        
+         try {
+             idb.insert(SQL1);
+             idb.insert(SQL2);
+        } catch (InfException e) {
+            System.out.println(e.getMessage());
+        }        
+       
+}
+    
+     public void deleteExampleDataJonasFromTimeChoices() {
+        String SQL1 = "delete from TIME_CHOICES\n" +
+                       "where PERSONID = 1 \n" +
+                        "and MEETING_TIMEID = 1";
+        String SQL2 = "delete from TIME_CHOICES\n" +
+                       "where PERSONID = 1 \n" +
+                        "and MEETING_TIMEID = 2";
+        
+         try {
+             idb.delete(SQL1);
+             idb.delete(SQL2);
+        } catch (InfException e) {
+            System.out.println(e.getMessage());
+        }        
+       
+         
+}
+     
+     public boolean isPersonInTimeChoicesTable(String sql) {
+         boolean personExists = false;   
+         try {
+              idb.fetchColumn(sql);
+              personExists = true;
+        } catch (InfException e) {
+            System.out.println(e.getMessage());           
+        }   
+         return personExists;
+     }
     
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
