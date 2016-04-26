@@ -654,8 +654,8 @@ public class DBClass {
          
 }
      
-     /*public boolean isPersonInTimeChoicesTable(String sql) {
-        boolean personExists = false;   
+/*     public boolean isPersonInTimeChoicesTable(String sql) {
+         boolean personExists = false;   
          try {
               
              //ArrayList<String> personInTimeChoicesTable = new ArrayList<String>;
