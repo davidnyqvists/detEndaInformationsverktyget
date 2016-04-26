@@ -934,7 +934,7 @@ public class Main extends javax.swing.JFrame {
    public boolean isUserInTimeChoicesTable(int thisID) {
        boolean personExistsInTable = false;
        String sql = "select MEETING_TIMEID from TIME_CHOICES where PERSONID = " + thisID;
-       personExistsInTable = infDB.isPersonInTimeChoicesTable(sql);
+       //personExistsInTable = infDB.isPersonInTimeChoicesTable(sql);
        return personExistsInTable;
      }
     
