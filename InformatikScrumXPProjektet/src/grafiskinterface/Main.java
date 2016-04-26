@@ -5,6 +5,7 @@
  */
 package grafiskinterface;
 
+import databas.DBClass;
 import java.util.*;
 import java.awt.*;
 import java.awt.CardLayout;
@@ -14,7 +15,7 @@ import java.awt.CardLayout;
  */
 public class Main extends javax.swing.JFrame {
     
-
+ private DBClass infDB;
     /**
      * Creates new form Main
      */
@@ -23,6 +24,8 @@ public class Main extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         CardLayout card = (CardLayout)pnl_Main_MainMiddleWindow.getLayout();
         card.show(pnl_Main_MainMiddleWindow, "card4");
+        
+        infDB = new DBClass();
         
         //Locks the forums which the user doesn't have post rights in.
         lockPostRights();
@@ -62,33 +65,33 @@ public class Main extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         tpn_Main_MainMiddleWindow_Research_MainPane = new javax.swing.JTabbedPane();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow = new javax.swing.JTextPane();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePost = new javax.swing.JButton();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow = new javax.swing.JTextArea();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow1 = new javax.swing.JTextPane();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePost = new javax.swing.JButton();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8 = new javax.swing.JTextArea();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow2 = new javax.swing.JTextPane();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePost = new javax.swing.JButton();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9 = new javax.swing.JTextArea();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4 = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow3 = new javax.swing.JTextPane();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePost = new javax.swing.JButton();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10 = new javax.swing.JTextArea();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5 = new javax.swing.JPanel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow4 = new javax.swing.JTextPane();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePost = new javax.swing.JButton();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11 = new javax.swing.JTextArea();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6 = new javax.swing.JPanel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow5 = new javax.swing.JTextPane();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePost = new javax.swing.JButton();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12 = new javax.swing.JTextArea();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll = new javax.swing.JPanel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll = new javax.swing.JTextPane();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost = new javax.swing.JButton();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
@@ -243,7 +246,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_Education)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         tpn_Main_MainMiddleWindow_Education_MainPane1.addTab("Utbildning", tpn_Main_MainMiddleWindow_Education_MainPane);
@@ -284,7 +287,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tpn_Main_MainMiddleWindow_Education_MainPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnl_MainMiddleWindow_UtbildningLayout.createSequentialGroup()
-                        .addGap(0, 37, Short.MAX_VALUE)
+                        .addGap(0, 41, Short.MAX_VALUE)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -302,9 +305,11 @@ public class Main extends javax.swing.JFrame {
 
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1.setMinimumSize(new java.awt.Dimension(529, 100));
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1.setPreferredSize(new java.awt.Dimension(529, 393));
-
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow.setEditable(false);
-        jScrollPane2.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1FocusGained(evt);
+            }
+        });
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePost.setText("Nytt inlägg");
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePost.addActionListener(new java.awt.event.ActionListener() {
@@ -313,6 +318,19 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane12.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jScrollPane12FocusGained(evt);
+            }
+        });
+
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow.setEditable(false);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow.setColumns(20);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow.setLineWrap(true);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow.setRows(5);
+        jScrollPane12.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow);
+
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1Layout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1Layout);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1Layout.setHorizontalGroup(
@@ -320,26 +338,23 @@ public class Main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane12)
                     .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1Layout.createSequentialGroup()
                         .addGap(0, 419, Short.MAX_VALUE)
-                        .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePost))
-                    .addComponent(jScrollPane2))
+                        .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePost)))
                 .addContainerGap())
         );
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1Layout.setVerticalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePost)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 1", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1);
-
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow1.setEditable(false);
-        jScrollPane3.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow1);
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePost.setText("Nytt inlägg");
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePost.addActionListener(new java.awt.event.ActionListener() {
@@ -348,33 +363,37 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8.setEditable(false);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8.setColumns(20);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8.setLineWrap(true);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8.setRows(5);
+        jScrollPane13.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8);
+
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.setHorizontalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.createSequentialGroup()
+            .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.createSequentialGroup()
+                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.createSequentialGroup()
                         .addGap(0, 419, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePost))
-                    .addComponent(jScrollPane3))
+                    .addComponent(jScrollPane13))
                 .addContainerGap())
         );
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.setVerticalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePost)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 2", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2);
-
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow2.setEditable(false);
-        jScrollPane4.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow2);
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePost.setText("Nytt inlägg");
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePost.addActionListener(new java.awt.event.ActionListener() {
@@ -383,33 +402,37 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9.setEditable(false);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9.setColumns(20);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9.setLineWrap(true);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9.setRows(5);
+        jScrollPane14.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9);
+
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.setHorizontalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.createSequentialGroup()
+            .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.createSequentialGroup()
+                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.createSequentialGroup()
                         .addGap(0, 419, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePost))
-                    .addComponent(jScrollPane4))
+                    .addComponent(jScrollPane14))
                 .addContainerGap())
         );
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.setVerticalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePost)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 3", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3);
-
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow3.setEditable(false);
-        jScrollPane5.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow3);
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePost.setText("Nytt inlägg");
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePost.addActionListener(new java.awt.event.ActionListener() {
@@ -418,33 +441,37 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10.setEditable(false);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10.setColumns(20);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10.setLineWrap(true);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10.setRows(5);
+        jScrollPane15.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10);
+
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.setHorizontalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.createSequentialGroup()
+            .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.createSequentialGroup()
+                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.createSequentialGroup()
                         .addGap(0, 419, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePost))
-                    .addComponent(jScrollPane5))
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.setVerticalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePost)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 4", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4);
-
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow4.setEditable(false);
-        jScrollPane6.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow4);
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePost.setText("Nytt inlägg");
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePost.addActionListener(new java.awt.event.ActionListener() {
@@ -453,33 +480,37 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11.setEditable(false);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11.setColumns(20);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11.setLineWrap(true);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11.setRows(5);
+        jScrollPane18.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11);
+
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.setHorizontalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.createSequentialGroup()
+            .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.createSequentialGroup()
+                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.createSequentialGroup()
                         .addGap(0, 419, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePost))
-                    .addComponent(jScrollPane6))
+                    .addComponent(jScrollPane18))
                 .addContainerGap())
         );
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.setVerticalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePost)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 5", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5);
-
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow5.setEditable(false);
-        jScrollPane7.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow5);
 
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePost.setText("Nytt inlägg");
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePost.addActionListener(new java.awt.event.ActionListener() {
@@ -488,57 +519,68 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12.setEditable(false);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12.setColumns(20);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12.setLineWrap(true);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12.setRows(5);
+        jScrollPane19.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12);
+
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.setHorizontalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.createSequentialGroup()
+            .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.createSequentialGroup()
+                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.createSequentialGroup()
                         .addGap(0, 419, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePost))
-                    .addComponent(jScrollPane7))
+                    .addComponent(jScrollPane19, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.setVerticalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePost)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 6", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6);
 
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setEditable(false);
-        jScrollPane8.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll);
-
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost.setText("Nytt inlägg");
+
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setEditable(false);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setColumns(20);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setLineWrap(true);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setRows(5);
+        jScrollPane11.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll);
 
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.setHorizontalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane11)
+                    .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
+                        .addGap(0, 419, Short.MAX_VALUE)
                         .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost)))
                 .addContainerGap())
         );
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.setVerticalGroup(
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Alla", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll);
@@ -580,7 +622,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tpn_Main_MainMiddleWindow_Research_MainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnl_MainMiddleWindow_ForskningLayout.createSequentialGroup()
-                        .addGap(0, 37, Short.MAX_VALUE)
+                        .addGap(0, 41, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -629,7 +671,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_Social)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         tpn_Main_MainMiddleWindow_Social.addTab("Social", tpn_Main_MainMiddleWindow_Social_Pane1);
@@ -670,7 +712,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tpn_Main_MainMiddleWindow_Social, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnl_MainMiddleWindow_SocialLayout.createSequentialGroup()
-                        .addGap(0, 37, Short.MAX_VALUE)
+                        .addGap(0, 41, Short.MAX_VALUE)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -769,6 +811,8 @@ public class Main extends javax.swing.JFrame {
     private void btn_Main_ResearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_ResearchActionPerformed
         CardLayout card = (CardLayout)pnl_Main_MainMiddleWindow.getLayout();
         card.show(pnl_Main_MainMiddleWindow, "card3"); 
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setText("");
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setText(fillForumWithPost("all"));
     }//GEN-LAST:event_btn_Main_ResearchActionPerformed
 
     private void btn_Main_SocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_SocialActionPerformed
@@ -778,6 +822,7 @@ public class Main extends javax.swing.JFrame {
 
     private void btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePostActionPerformed
         GrafikHelper.InitieraCreateNewPost("rGroup1", "Research");
+        fillForumWithPost("group1");
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePostActionPerformed
 
     private void btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePostActionPerformed
@@ -813,8 +858,19 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_SocialActionPerformed
 
-  
-    
+    private void jScrollPane12FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jScrollPane12FocusGained
+        fillForumWithPost("group1");
+    }//GEN-LAST:event_jScrollPane12FocusGained
+
+    private void tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1FocusGained
+        fillForumWithPost("group1");
+    }//GEN-LAST:event_tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1FocusGained
+
+    private String fillForumWithPost(String group)
+    {
+        String allInfo = infDB.fillForums(group);
+        return allInfo;
+    }
     
     
     
@@ -909,15 +965,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane18;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
@@ -933,20 +989,20 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tpn_Main_MainMiddleWindow_Education_MainPane1;
     private javax.swing.JTabbedPane tpn_Main_MainMiddleWindow_Research_MainPane;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1;
-    private javax.swing.JTextPane tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow;
-    private javax.swing.JTextPane tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow1;
-    private javax.swing.JTextPane tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow2;
-    private javax.swing.JTextPane tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow3;
-    private javax.swing.JTextPane tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow4;
-    private javax.swing.JTextPane tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow5;
+    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow;
     private javax.swing.JTextPane tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow6;
     private javax.swing.JTextPane tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow7;
-    private javax.swing.JTextPane tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll;
+    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2;
+    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3;
+    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4;
+    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5;
+    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6;
+    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll;
     private javax.swing.JTabbedPane tpn_Main_MainMiddleWindow_Social;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Social_Pane1;
