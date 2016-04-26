@@ -56,8 +56,8 @@ public class MainTest {
     /**
      * Test of isUserInTimeChoicesTable method, of class Main.
      */
-    @Test
-    public void testIsUserInTimeChoicesTablePOSITIVE() {
+
+    /*public void testIsUserInTimeChoicesTablePOSITIVE() {
         System.out.println("isUserInTimeChoicesTablePOSITIVE");
         int thisID = 1;
         database.insertExampleDataJonasInTimeChoices();
@@ -66,17 +66,16 @@ public class MainTest {
         boolean result = instance.isUserInTimeChoicesTable(thisID);
         assertEquals(expResult, result);
         database.deleteExampleDataJonasFromTimeChoices();
-    }
-    
-    @Test
-    public void testIsUserInTimeChoicesTableNEGATIVE() {
+    }*/
+
+    /*public void testIsUserInTimeChoicesTableNEGATIVE() {
         System.out.println("isUserInTimeChoicesTableNEGATIVE");
         int thisID = 718;
         Main instance = new Main();
         boolean expResult = false;
-        boolean result = instance.isUserInTimeChoicesTable(thisID);
+        //boolean result = instance.isUserInTimeChoicesTable(thisID);
         assertEquals(expResult, result);
-    }
+    }*/
     
     
 }
