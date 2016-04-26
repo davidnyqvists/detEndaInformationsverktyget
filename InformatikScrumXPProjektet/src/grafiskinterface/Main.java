@@ -9,26 +9,36 @@ import databas.DBClass;
 import java.util.*;
 import java.awt.*;
 import java.awt.CardLayout;
+
 /**
  *
  * @author Simon the swaglord
  */
 public class Main extends javax.swing.JFrame {
-    
- private DBClass infDB;
+
+    private DBClass infDB;
+    HashMap<Integer, String> allPostsList;
+
     /**
      * Creates new form Main
      */
     public Main() {
-        initComponents();   
+        initComponents();
         this.setLocationRelativeTo(null);
-        CardLayout card = (CardLayout)pnl_Main_MainMiddleWindow.getLayout();
+        CardLayout card = (CardLayout) pnl_Main_MainMiddleWindow.getLayout();
         card.show(pnl_Main_MainMiddleWindow, "card4");
-        
+
         infDB = new DBClass();
-        
+        allPostsList = new HashMap<Integer, String>();
+
         //Locks the forums which the user doesn't have post rights in.
         lockPostRights();
+        
+        int thisID = CurrentLogin.getId();
+        boolean needToChooseTimes1 = isUserInTimeChoicesTable(thisID);
+        //boolean needToChooseTimes2 = doesUserHaveNullYesNoInTimeChoices(needToChooseTimes1);
+        //showMessageNeedToChooseTimes(needToChooseTimes2);
+        
         
         int thisID = CurrentLogin.getId();
         boolean needToChooseTimes1 = isUserInTimeChoicesTable(thisID);
@@ -77,23 +87,23 @@ public class Main extends javax.swing.JFrame {
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2 = new javax.swing.JPanel();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePost = new javax.swing.JButton();
         jScrollPane13 = new javax.swing.JScrollPane();
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8 = new javax.swing.JTextArea();
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow = new javax.swing.JTextArea();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3 = new javax.swing.JPanel();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePost = new javax.swing.JButton();
         jScrollPane14 = new javax.swing.JScrollPane();
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9 = new javax.swing.JTextArea();
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow = new javax.swing.JTextArea();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4 = new javax.swing.JPanel();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePost = new javax.swing.JButton();
         jScrollPane15 = new javax.swing.JScrollPane();
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10 = new javax.swing.JTextArea();
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow = new javax.swing.JTextArea();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5 = new javax.swing.JPanel();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePost = new javax.swing.JButton();
         jScrollPane18 = new javax.swing.JScrollPane();
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11 = new javax.swing.JTextArea();
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow = new javax.swing.JTextArea();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6 = new javax.swing.JPanel();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePost = new javax.swing.JButton();
         jScrollPane19 = new javax.swing.JScrollPane();
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12 = new javax.swing.JTextArea();
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow = new javax.swing.JTextArea();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll = new javax.swing.JPanel();
         btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost = new javax.swing.JButton();
         jScrollPane11 = new javax.swing.JScrollPane();
@@ -369,12 +379,12 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8.setEditable(false);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8.setColumns(20);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8.setLineWrap(true);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8.setRows(5);
-        jScrollPane13.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow.setEditable(false);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow.setColumns(20);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow.setLineWrap(true);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow.setRows(5);
+        jScrollPane13.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow);
 
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2Layout);
@@ -408,12 +418,12 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9.setEditable(false);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9.setColumns(20);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9.setLineWrap(true);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9.setRows(5);
-        jScrollPane14.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow.setEditable(false);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow.setColumns(20);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow.setLineWrap(true);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow.setRows(5);
+        jScrollPane14.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow);
 
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3Layout);
@@ -447,12 +457,12 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10.setEditable(false);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10.setColumns(20);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10.setLineWrap(true);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10.setRows(5);
-        jScrollPane15.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow.setEditable(false);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow.setColumns(20);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow.setLineWrap(true);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow.setRows(5);
+        jScrollPane15.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow);
 
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4Layout);
@@ -486,12 +496,12 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11.setEditable(false);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11.setColumns(20);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11.setLineWrap(true);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11.setRows(5);
-        jScrollPane18.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow.setEditable(false);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow.setColumns(20);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow.setLineWrap(true);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow.setRows(5);
+        jScrollPane18.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow);
 
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5Layout);
@@ -525,12 +535,12 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12.setEditable(false);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12.setColumns(20);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12.setLineWrap(true);
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12.setRows(5);
-        jScrollPane19.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow.setEditable(false);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow.setColumns(20);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow.setLineWrap(true);
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow.setRows(5);
+        jScrollPane19.setViewportView(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow);
 
         javax.swing.GroupLayout tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout = new javax.swing.GroupLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6.setLayout(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6Layout);
@@ -792,43 +802,38 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    
-    
+
     private void btn_Main_AvslutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_AvslutaActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_btn_Main_AvslutaActionPerformed
 
     private void btn_Main_SkapaMoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_SkapaMoteActionPerformed
-         GrafikHelper.InitieraSkapaMote();
+        GrafikHelper.InitieraSkapaMote();
     }//GEN-LAST:event_btn_Main_SkapaMoteActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         GrafikHelper.InitieraSeMoten();
-        
+        GrafikHelper.InitieraSeMoten();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_Main_EducationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_EducationActionPerformed
-        CardLayout card = (CardLayout)pnl_Main_MainMiddleWindow.getLayout();
-        card.show(pnl_Main_MainMiddleWindow, "card2"); 
+        CardLayout card = (CardLayout) pnl_Main_MainMiddleWindow.getLayout();
+        card.show(pnl_Main_MainMiddleWindow, "card2");
     }//GEN-LAST:event_btn_Main_EducationActionPerformed
 
     private void btn_Main_ResearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_ResearchActionPerformed
-        CardLayout card = (CardLayout)pnl_Main_MainMiddleWindow.getLayout();
-        card.show(pnl_Main_MainMiddleWindow, "card3"); 
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setText("");
-        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setText(fillForumWithPost("all"));
+        CardLayout card = (CardLayout) pnl_Main_MainMiddleWindow.getLayout();
+        card.show(pnl_Main_MainMiddleWindow, "card3");
+        fillForumWithPost();
     }//GEN-LAST:event_btn_Main_ResearchActionPerformed
 
     private void btn_Main_SocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_SocialActionPerformed
-        CardLayout card = (CardLayout)pnl_Main_MainMiddleWindow.getLayout();
-        card.show(pnl_Main_MainMiddleWindow, "card4"); 
+        CardLayout card = (CardLayout) pnl_Main_MainMiddleWindow.getLayout();
+        card.show(pnl_Main_MainMiddleWindow, "card4");
     }//GEN-LAST:event_btn_Main_SocialActionPerformed
 
     private void btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePostActionPerformed
         GrafikHelper.InitieraCreateNewPost("rGroup1", "Research");
-        fillForumWithPost("group1");
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePostActionPerformed
 
     private void btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePostActionPerformed
@@ -852,7 +857,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePostActionPerformed
 
     private void btn_Main_LoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_LoggautActionPerformed
-        GrafikHelper.DisposeFrame();
+        GrafikHelper.DisposeMain();
         GrafikHelper.InitieraLogIn();
     }//GEN-LAST:event_btn_Main_LoggautActionPerformed
 
@@ -865,34 +870,65 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_SocialActionPerformed
 
     private void jScrollPane12FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jScrollPane12FocusGained
-        fillForumWithPost("group1");
+
     }//GEN-LAST:event_jScrollPane12FocusGained
 
     private void tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1FocusGained
-        fillForumWithPost("group1");
+
     }//GEN-LAST:event_tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1FocusGained
 
-    private String fillForumWithPost(String group)
-    {
-        String allInfo = infDB.fillForums(group);
-        return allInfo;
+    public void fillForumWithPost() {
+        //Gets all the posts in an ArrayList.
+        allPostsList = infDB.fillForums();
+
+        //Clears all the windows.
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow.setText("");
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow.setText("");
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow.setText("");
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow.setText("");
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow.setText("");
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow.setText("");
+        tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setText("");
+        
+        
+
+        //Prints out all the posts packages.
+            System.out.print(allPostsList.get(1));
+         if (allPostsList.containsKey(1)) {
+            tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow.setText(allPostsList.get(1));
+        }
+        if (allPostsList.containsKey(2)) {
+            tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow.setText(allPostsList.get(2));
+        }
+        if (allPostsList.containsKey(3)) {
+            tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow.setText(allPostsList.get(3));
+        }
+        if (allPostsList.containsKey(4)) {
+            tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow.setText(allPostsList.get(4));
+        }
+        if (allPostsList.containsKey(5)) {
+            tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow.setText(allPostsList.get(5));
+        }
+        if (allPostsList.containsKey(6)) {
+            tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow.setText(allPostsList.get(6));
+        }
+        if (allPostsList.containsKey(7)) {
+            tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setText(allPostsList.get(7));
+        }
+
+
     }
-    
-    
-    
+
     //Checks what access the user has towards current login and locks down
     //the parts which are access=false.
-    private void lockPostRights()
-    {
+    private void lockPostRights() {
         boolean eduPoster = CurrentLogin.isUtbildning();
         boolean resPoster = CurrentLogin.isForskning();
-        
-        if (!eduPoster)
-        {
+
+        if (!eduPoster) {
             btn_Main_MainMiddleWindow_Research_MainPane_Education.setEnabled(false);
         }
-        if (!resPoster)
-        {
+        if (!resPoster) {
             btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePost.setEnabled(false);
             btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePost.setEnabled(false);
             btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePost.setEnabled(false);
@@ -1013,15 +1049,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextPane tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindow7;
     private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2;
-    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow8;
+    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_ForumWindow;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3;
-    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow9;
+    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_ForumWindow;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4;
-    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow10;
+    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_ForumWindow;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5;
-    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow11;
+    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_ForumWindow;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6;
-    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow12;
+    private javax.swing.JTextArea tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll;
     private javax.swing.JTabbedPane tpn_Main_MainMiddleWindow_Social;
     private javax.swing.JPanel tpn_Main_MainMiddleWindow_Social_Pane1;

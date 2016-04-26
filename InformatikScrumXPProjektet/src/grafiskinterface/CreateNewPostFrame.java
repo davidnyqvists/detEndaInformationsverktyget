@@ -160,6 +160,8 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
         
         this.dispose();
         
+        GrafikHelper.fillMainPost();
+        
             }
             else {JOptionPane.showMessageDialog(null, "Kontrollera textlängden");}
         }

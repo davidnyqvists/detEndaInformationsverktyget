@@ -401,7 +401,7 @@ public class DBClass {
      * Method for filling the text boxes with forum posts.
      * @return 
      */
-    public String fillForums(String groupButton)//ADD PARAMETER FOR CHANGING WHAT FORUM TO POST IN.
+    public HashMap<Integer, String> fillForums()//ADD PARAMETER FOR CHANGING WHAT FORUM TO POST IN.
     {
         
         String sqlResearch = "SELECT POSTID FROM POST_FORSKNING";
@@ -418,6 +418,10 @@ public class DBClass {
         ArrayList<String> postIDs = new ArrayList<>(); //Holds the research forum post IDs.
         ArrayList<String> researchPostIDs = new ArrayList<>(); //Holds the forum post ID.
         ArrayList<String> printOutIDs = new ArrayList<>();
+        ArrayList<String> allPostsList = new ArrayList<String>();
+        HashMap<Integer, String> postHolder = new HashMap<Integer, String>();
+            
+            
         
         //Loops through all the IDs in both of the lists, compares them, and if they match, they 
         // get added to the printOutIDs, which will fetch the post data.
@@ -496,27 +500,25 @@ public class DBClass {
                 allPosts = currentPostLayout + allPostHolder;
             }
             
-            //Decides which post strings are going to be returned.
-            if (groupButton.equals("group1")) {
-                return rGroup1Posts;
-            } else if (groupButton.equals("group2")) {
-                return rGroup2Posts;
-            } else if (groupButton.equals("group3")) {
-                return rGroup3Posts;
-            } else if (groupButton.equals("group4")) {
-                return rGroup4Posts;
-            } else if (groupButton.equals("group5")) {
-                return rGroup5Posts;
-            } else if (groupButton.equals("group6")) {
-                return rGroup6Posts;
-            } else {
-                return allPosts;
-            }
+            
+           
+            postHolder.put(1, rGroup1Posts);
+            postHolder.put(2, rGroup2Posts);
+            postHolder.put(3, rGroup3Posts);
+            postHolder.put(4, rGroup4Posts);
+            postHolder.put(5, rGroup5Posts);
+            postHolder.put(6, rGroup6Posts);
+            postHolder.put(7, allPosts);
+            
+
+            
+            return postHolder;
+
             
             
         } catch (InfException e) {
             System.out.println(e.getMessage());
-            return "";
+            return postHolder;
         }
     }
     
