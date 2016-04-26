@@ -18,7 +18,7 @@ public class Main extends javax.swing.JFrame {
 
     private DBClass infDB;
     HashMap<Integer, String> allPostsList;
-
+    CurrentLoginHolder loginHolder;
     /**
      * Creates new form Main
      */
@@ -30,12 +30,13 @@ public class Main extends javax.swing.JFrame {
 
         infDB = new DBClass();
         allPostsList = new HashMap<Integer, String>();
-
+        loginHolder = new CurrentLoginHolder();
+        
         //Locks the forums which the user doesn't have post rights in.
         lockPostRights();
         
-        int thisID = CurrentLogin.getId();
-        boolean needToChooseTimes1 = isUserInTimeChoicesTable(thisID);
+        //int thisID = CurrentLogin.getId();
+        //boolean needToChooseTimes1 = isUserInTimeChoicesTable(thisID);
         //boolean needToChooseTimes2 = doesUserHaveNullYesNoInTimeChoices(needToChooseTimes1);
         //showMessageNeedToChooseTimes(needToChooseTimes2);
 
@@ -99,7 +100,6 @@ public class Main extends javax.swing.JFrame {
         jScrollPane19 = new javax.swing.JScrollPane();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_ForumWindow = new javax.swing.JTextArea();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll = new javax.swing.JPanel();
-        btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost = new javax.swing.JButton();
         jScrollPane11 = new javax.swing.JScrollPane();
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -553,8 +553,6 @@ public class Main extends javax.swing.JFrame {
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Forskargrupp 6", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6);
 
-        btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost.setText("Nytt inlägg");
-
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setEditable(false);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setColumns(20);
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_ForumWindowAll.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -568,11 +566,7 @@ public class Main extends javax.swing.JFrame {
             tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane11)
-                    .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
-                        .addGap(0, 590, Short.MAX_VALUE)
-                        .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost)))
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
                 .addContainerGap())
         );
         tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.setVerticalGroup(
@@ -580,9 +574,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAllLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         tpn_Main_MainMiddleWindow_Research_MainPane.addTab("Alla", tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll);
@@ -843,6 +835,7 @@ public class Main extends javax.swing.JFrame {
     private void btn_Main_LoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_LoggautActionPerformed
         GrafikHelper.DisposeMain();
         GrafikHelper.InitieraLogIn();
+        loginHolder.clearUser();
     }//GEN-LAST:event_btn_Main_LoggautActionPerformed
 
     private void btn_Main_MainMiddleWindow_Research_MainPane_EducationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_EducationActionPerformed
@@ -919,7 +912,6 @@ public class Main extends javax.swing.JFrame {
             btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePost.setEnabled(false);
             btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePost.setEnabled(false);
             btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePost.setEnabled(false);
-            btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost.setEnabled(false);
         }
     }
     
@@ -931,13 +923,13 @@ public class Main extends javax.swing.JFrame {
      * @param thisID
      * @return 
      */
-   public boolean isUserInTimeChoicesTable(int thisID) {
+   /*public boolean isUserInTimeChoicesTable(int thisID) {
        boolean personExistsInTable = false;
        String sql = "select MEETING_TIMEID from TIME_CHOICES where PERSONID = " + thisID;
        personExistsInTable = infDB.isPersonInTimeChoicesTable(sql);
        return personExistsInTable;
      }
-    
+    */
     
     
     
@@ -990,7 +982,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePost;
     private javax.swing.JButton btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePost;
     private javax.swing.JButton btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePost;
-    private javax.swing.JButton btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroupAll_CreatePost;
     private javax.swing.JButton btn_Main_MainMiddleWindow_Research_MainPane_Social;
     private javax.swing.JButton btn_Main_Research;
     private javax.swing.JButton btn_Main_SkapaMote;

@@ -75,7 +75,16 @@ public class CurrentLoginHolder {
         
     }
 
-    
+    public void clearUser()
+    {
+        CurrentLogin.setId(0);
+        CurrentLogin.setNamn("");
+        CurrentLogin.setSystemAmdmin(false);
+        CurrentLogin.setEducationAdmin(false);
+        CurrentLogin.setResearchAdmin(false);
+        CurrentLogin.setUtbildning(false);
+        CurrentLogin.setForskning(false);
+    }
     
     
     

@@ -654,7 +654,7 @@ public class DBClass {
          
 }
      
-     public boolean isPersonInTimeChoicesTable(String sql) {
+/*     public boolean isPersonInTimeChoicesTable(String sql) {
          boolean personExists = false;   
          try {
               
@@ -669,7 +669,8 @@ public class DBClass {
         }   
          return personExists;
      }
-    
+ */
+     
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
     
