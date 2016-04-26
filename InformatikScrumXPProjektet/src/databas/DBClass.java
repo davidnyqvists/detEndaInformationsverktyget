@@ -455,7 +455,7 @@ public class DBClass {
                 String postResearch = idb.fetchSingle(sql);
                 String authorName = idb.fetchSingle(sqlName);
                 
-                //Orkar inte jobba mer idag. 22/04/2016
+                //Orkar inte jobba mer idag. /A 22/04/2016
                 
                 //Puts together all the post info into one string.
                 String currentPostLayout = "==================================================================== \n\n"

@@ -859,7 +859,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_SocialActionPerformed
 
     private void jScrollPane12FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jScrollPane12FocusGained
-    fillForumWithPost("group1");
+        fillForumWithPost("group1");
     }//GEN-LAST:event_jScrollPane12FocusGained
 
     private void tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tpn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1FocusGained
